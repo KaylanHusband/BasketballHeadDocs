@@ -583,11 +583,13 @@
     "/teams/{team_id}/metadata/{season_id}": {
       "get": {
         "summary": "GET /teams/{team_id}/metadata/{season_id}",
-        "operationId": "get_team_metadata_teams__team_id__metadata__season_id__get",
+        "description": "Get team metadata by team ID and season.",
+        "operationId": "getTeamMetadata",
         "parameters": [
           {
             "required": true,
             "schema": {
+              "type": "string",
               "title": "Team Id"
             },
             "name": "team_id",
@@ -596,6 +598,7 @@
           {
             "required": true,
             "schema": {
+              "type": "string",
               "title": "Season Id"
             },
             "name": "season_id",
@@ -616,7 +619,11 @@
           "200": {
             "description": "Successful Response",
             "content": {
-              "application/json": {}
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTeamMetadataResponseDto"
+                }
+              }
             }
           }
         }
@@ -625,11 +632,13 @@
     "/teams/{team_id}/roster/{season_id}": {
       "get": {
         "summary": "GET /teams/{team_id}/roster/{season_id}",
-        "operationId": "get_team_roster_teams__team_id__roster__season_id__get",
+        "description": "Get team roster by team ID and season.",
+        "operationId": "getTeamRoster",
         "parameters": [
           {
             "required": true,
             "schema": {
+              "type": "string",
               "title": "Team Id"
             },
             "name": "team_id",
@@ -638,6 +647,7 @@
           {
             "required": true,
             "schema": {
+              "type": "string",
               "title": "Season Id"
             },
             "name": "season_id",
@@ -658,7 +668,11 @@
           "200": {
             "description": "Successful Response",
             "content": {
-              "application/json": {}
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTeamRosterResponseDto"
+                }
+              }
             }
           }
         }
@@ -667,11 +681,13 @@
     "/teams/{team_id}/schedule/{season_id}": {
       "get": {
         "summary": "GET /teams/{team_id}/schedule/{season_id}",
-        "operationId": "get_team_schedule_teams__team_id__schedule__season_id__get",
+        "description": "Get team schedule by team ID and season.",
+        "operationId": "getTeamSchedule",
         "parameters": [
           {
             "required": true,
             "schema": {
+              "type": "string",
               "title": "Team Id"
             },
             "name": "team_id",
@@ -680,6 +696,7 @@
           {
             "required": true,
             "schema": {
+              "type": "string",
               "title": "Season Id"
             },
             "name": "season_id",
@@ -700,7 +717,11 @@
           "200": {
             "description": "Successful Response",
             "content": {
-              "application/json": {}
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTeamScheduleResponseDto"
+                }
+              }
             }
           }
         }
@@ -1027,6 +1048,72 @@
           "totalItems"
         ],
         "title": "GetPlayerTotalStatsResponseDto"
+      },
+      "GetTeamMetadataResponseDto": {
+        "properties": {
+          "body": {
+            "$ref": "#/components/schemas/TeamMetadataDto"
+          },
+          "totalItems": {
+            "type": "integer",
+            "title": "Totalitems"
+          },
+          "responseCode": {
+            "type": "integer",
+            "title": "Responsecode",
+            "default": 200
+          }
+        },
+        "type": "object",
+        "required": [
+          "body",
+          "totalItems"
+        ],
+        "title": "GetTeamMetadataResponseDto"
+      },
+      "GetTeamRosterResponseDto": {
+        "properties": {
+          "body": {
+            "$ref": "#/components/schemas/TeamRosterDto"
+          },
+          "totalItems": {
+            "type": "integer",
+            "title": "Totalitems"
+          },
+          "responseCode": {
+            "type": "integer",
+            "title": "Responsecode",
+            "default": 200
+          }
+        },
+        "type": "object",
+        "required": [
+          "body",
+          "totalItems"
+        ],
+        "title": "GetTeamRosterResponseDto"
+      },
+      "GetTeamScheduleResponseDto": {
+        "properties": {
+          "body": {
+            "$ref": "#/components/schemas/TeamScheduleDto"
+          },
+          "totalItems": {
+            "type": "integer",
+            "title": "Totalitems"
+          },
+          "responseCode": {
+            "type": "integer",
+            "title": "Responsecode",
+            "default": 200
+          }
+        },
+        "type": "object",
+        "required": [
+          "body",
+          "totalItems"
+        ],
+        "title": "GetTeamScheduleResponseDto"
       },
       "HTTPValidationError": {
         "properties": {
@@ -3613,6 +3700,171 @@
           "seasonType"
         ],
         "title": "PlayerTotalsDto"
+      },
+      "TeamMetadataDto": {
+        "properties": {
+          "teamId": {
+            "type": "string",
+            "title": "Teamid"
+          },
+          "seasonId": {
+            "type": "string",
+            "title": "Seasonid"
+          },
+          "record": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Record"
+          },
+          "ranking": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ranking"
+          },
+          "lastGameInfo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lastgameinfo"
+          },
+          "nextGameInfo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nextgameinfo"
+          },
+          "coach": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Coach"
+          },
+          "executive": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Executive"
+          },
+          "arena": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Arena"
+          },
+          "capacity": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Capacity"
+          },
+          "logoImage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Logoimage"
+          }
+        },
+        "type": "object",
+        "required": [
+          "teamId",
+          "seasonId"
+        ],
+        "title": "TeamMetadataDto"
+      },
+      "TeamRosterDto": {
+        "properties": {
+          "teamId": {
+            "type": "string",
+            "title": "Teamid"
+          },
+          "seasonId": {
+            "type": "string",
+            "title": "Seasonid"
+          },
+          "roster": {
+            "items": {},
+            "type": "array",
+            "title": "Roster"
+          }
+        },
+        "type": "object",
+        "required": [
+          "teamId",
+          "seasonId",
+          "roster"
+        ],
+        "title": "TeamRosterDto"
+      },
+      "TeamScheduleDto": {
+        "properties": {
+          "teamId": {
+            "type": "string",
+            "title": "Teamid"
+          },
+          "seasonId": {
+            "type": "string",
+            "title": "Seasonid"
+          },
+          "schedule": {
+            "items": {},
+            "type": "array",
+            "title": "Schedule"
+          }
+        },
+        "type": "object",
+        "required": [
+          "teamId",
+          "seasonId",
+          "schedule"
+        ],
+        "title": "TeamScheduleDto"
       },
       "ValidationError": {
         "properties": {
