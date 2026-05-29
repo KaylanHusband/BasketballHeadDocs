@@ -1,0 +1,3661 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Basketball Head Service",
+    "description": "Basketball Head API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "paths": {
+    "/players/{player_id}": {
+      "get": {
+        "summary": "GET /players/{player_id}",
+        "description": "Get player metadata by player ID.",
+        "operationId": "getPlayerByPlayerId",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Player Id"
+            },
+            "name": "player_id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetPlayerByPlayerIdResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/players/{player_id}/stats/PerGame": {
+      "get": {
+        "summary": "GET /players/{player_id}/stats/PerGame",
+        "description": "Get per-game stats for a player.",
+        "operationId": "getPlayerPerGameStats",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Player Id"
+            },
+            "name": "player_id",
+            "in": "path"
+          },
+          {
+            "description": "Filter by season type, e.g. Regular or Playoffs.",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Seasontype",
+              "description": "Filter by season type, e.g. Regular or Playoffs."
+            },
+            "name": "seasonType",
+            "in": "query"
+          },
+          {
+            "description": "Filter by season, e.g. 2023-24.",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Seasonid",
+              "description": "Filter by season, e.g. 2023-24."
+            },
+            "name": "seasonId",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetPlayerPerGameStatsResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/players/{player_id}/stats/Totals": {
+      "get": {
+        "summary": "GET /players/{player_id}/stats/Totals",
+        "description": "Get total stats for a player.",
+        "operationId": "getPlayerTotalStats",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Player Id"
+            },
+            "name": "player_id",
+            "in": "path"
+          },
+          {
+            "description": "Filter by season type, e.g. Regular or Playoffs.",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Seasontype",
+              "description": "Filter by season type, e.g. Regular or Playoffs."
+            },
+            "name": "seasonType",
+            "in": "query"
+          },
+          {
+            "description": "Filter by season, e.g. 2023-24.",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Seasonid",
+              "description": "Filter by season, e.g. 2023-24."
+            },
+            "name": "seasonId",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetPlayerTotalStatsResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/players/{player_id}/stats/Per100": {
+      "get": {
+        "summary": "GET /players/{player_id}/stats/Per100",
+        "description": "Get per-100-possession stats for a player.",
+        "operationId": "getPlayerPer100Stats",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Player Id"
+            },
+            "name": "player_id",
+            "in": "path"
+          },
+          {
+            "description": "Filter by season type, e.g. Regular or Playoffs.",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Seasontype",
+              "description": "Filter by season type, e.g. Regular or Playoffs."
+            },
+            "name": "seasonType",
+            "in": "query"
+          },
+          {
+            "description": "Filter by season, e.g. 2023-24.",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Seasonid",
+              "description": "Filter by season, e.g. 2023-24."
+            },
+            "name": "seasonId",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetPlayerPer100StatsResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/players/{player_id}/stats/Per36": {
+      "get": {
+        "summary": "GET /players/{player_id}/stats/Per36",
+        "description": "Get per-36-minute stats for a player.",
+        "operationId": "getPlayerPer36Stats",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Player Id"
+            },
+            "name": "player_id",
+            "in": "path"
+          },
+          {
+            "description": "Filter by season type, e.g. Regular or Playoffs.",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Seasontype",
+              "description": "Filter by season type, e.g. Regular or Playoffs."
+            },
+            "name": "seasonType",
+            "in": "query"
+          },
+          {
+            "description": "Filter by season, e.g. 2023-24.",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Seasonid",
+              "description": "Filter by season, e.g. 2023-24."
+            },
+            "name": "seasonId",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetPlayerPer36StatsResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/players/{player_id}/stats/Advanced": {
+      "get": {
+        "summary": "GET /players/{player_id}/stats/Advanced",
+        "description": "Get advanced stats for a player.",
+        "operationId": "getPlayerAdvancedStats",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Player Id"
+            },
+            "name": "player_id",
+            "in": "path"
+          },
+          {
+            "description": "Filter by season type, e.g. Regular or Playoffs.",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Seasontype",
+              "description": "Filter by season type, e.g. Regular or Playoffs."
+            },
+            "name": "seasonType",
+            "in": "query"
+          },
+          {
+            "description": "Filter by season, e.g. 2023-24.",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Seasonid",
+              "description": "Filter by season, e.g. 2023-24."
+            },
+            "name": "seasonId",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetPlayerAdvancedStatsResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/players/{player_id}/stats/Salary": {
+      "get": {
+        "summary": "GET /players/{player_id}/stats/Salary",
+        "description": "Get career salary records for a player.",
+        "operationId": "getPlayerCareerSalaries",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Player Id"
+            },
+            "name": "player_id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetPlayerCareerSalariesResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/players/{player_id}/games": {
+      "post": {
+        "summary": "POST /players/{player_id}/games",
+        "description": "List game log records for a player with pagination support.",
+        "operationId": "listPlayerGames",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Player Id"
+            },
+            "name": "player_id",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListPlayerGamesRequestDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListPlayerGamesResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/players/{player_id}/games/{season_id}": {
+      "post": {
+        "summary": "POST /players/{player_id}/games/{season_id}",
+        "description": "List game log records for a player and season with pagination support.",
+        "operationId": "listPlayerGamesBySeason",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Player Id"
+            },
+            "name": "player_id",
+            "in": "path"
+          },
+          {
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Season Id"
+            },
+            "name": "season_id",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListPlayerGamesBySeasonRequestDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListPlayerGamesBySeasonResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/teams/{team_id}/metadata/{season_id}": {
+      "get": {
+        "summary": "GET /teams/{team_id}/metadata/{season_id}",
+        "operationId": "get_team_metadata_teams__team_id__metadata__season_id__get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Team Id"
+            },
+            "name": "team_id",
+            "in": "path"
+          },
+          {
+            "required": true,
+            "schema": {
+              "title": "Season Id"
+            },
+            "name": "season_id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/teams/{team_id}/roster/{season_id}": {
+      "get": {
+        "summary": "GET /teams/{team_id}/roster/{season_id}",
+        "operationId": "get_team_roster_teams__team_id__roster__season_id__get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Team Id"
+            },
+            "name": "team_id",
+            "in": "path"
+          },
+          {
+            "required": true,
+            "schema": {
+              "title": "Season Id"
+            },
+            "name": "season_id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/teams/{team_id}/schedule/{season_id}": {
+      "get": {
+        "summary": "GET /teams/{team_id}/schedule/{season_id}",
+        "operationId": "get_team_schedule_teams__team_id__schedule__season_id__get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Team Id"
+            },
+            "name": "team_id",
+            "in": "path"
+          },
+          {
+            "required": true,
+            "schema": {
+              "title": "Season Id"
+            },
+            "name": "season_id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/players": {
+      "post": {
+        "summary": "POST /players",
+        "description": "List players by first name index with pagination support.",
+        "operationId": "listPlayers",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListPlayersRequestDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListPlayersResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/players/search": {
+      "post": {
+        "summary": "POST /players/search",
+        "description": "List players matching a first name and optional last name prefix.",
+        "operationId": "listPlayersByFirstName",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListPlayersByFirstNameRequestDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListPlayersByFirstNameResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/players/lastname": {
+      "post": {
+        "summary": "POST /players/lastname",
+        "description": "List players matching a last name prefix.",
+        "operationId": "listPlayersByLastName",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListPlayersByLastNameRequestDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListPlayersByLastNameResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/players/healthcheck": {
+      "get": {
+        "summary": "GET /players/healthcheck",
+        "operationId": "healthcheck_players_healthcheck_get",
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GetPlayerAdvancedStatsResponseDto": {
+        "properties": {
+          "body": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerAdvancedDto"
+            },
+            "type": "array",
+            "title": "Body"
+          },
+          "totalItems": {
+            "type": "integer",
+            "title": "Totalitems"
+          },
+          "responseCode": {
+            "type": "integer",
+            "title": "Responsecode",
+            "default": 200
+          }
+        },
+        "type": "object",
+        "required": [
+          "body",
+          "totalItems"
+        ],
+        "title": "GetPlayerAdvancedStatsResponseDto"
+      },
+      "GetPlayerByPlayerIdResponseDto": {
+        "properties": {
+          "body": {
+            "$ref": "#/components/schemas/PlayerMetadataDto"
+          },
+          "totalItems": {
+            "type": "integer",
+            "title": "Totalitems"
+          },
+          "responseCode": {
+            "type": "integer",
+            "title": "Responsecode",
+            "default": 200
+          }
+        },
+        "type": "object",
+        "required": [
+          "body",
+          "totalItems"
+        ],
+        "title": "GetPlayerByPlayerIdResponseDto"
+      },
+      "GetPlayerCareerSalariesResponseDto": {
+        "properties": {
+          "body": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerSalaryDto"
+            },
+            "type": "array",
+            "title": "Body"
+          },
+          "totalItems": {
+            "type": "integer",
+            "title": "Totalitems"
+          },
+          "responseCode": {
+            "type": "integer",
+            "title": "Responsecode",
+            "default": 200
+          }
+        },
+        "type": "object",
+        "required": [
+          "body",
+          "totalItems"
+        ],
+        "title": "GetPlayerCareerSalariesResponseDto"
+      },
+      "GetPlayerPer100StatsResponseDto": {
+        "properties": {
+          "body": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerPer100Dto"
+            },
+            "type": "array",
+            "title": "Body"
+          },
+          "totalItems": {
+            "type": "integer",
+            "title": "Totalitems"
+          },
+          "responseCode": {
+            "type": "integer",
+            "title": "Responsecode",
+            "default": 200
+          }
+        },
+        "type": "object",
+        "required": [
+          "body",
+          "totalItems"
+        ],
+        "title": "GetPlayerPer100StatsResponseDto"
+      },
+      "GetPlayerPer36StatsResponseDto": {
+        "properties": {
+          "body": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerPer36Dto"
+            },
+            "type": "array",
+            "title": "Body"
+          },
+          "totalItems": {
+            "type": "integer",
+            "title": "Totalitems"
+          },
+          "responseCode": {
+            "type": "integer",
+            "title": "Responsecode",
+            "default": 200
+          }
+        },
+        "type": "object",
+        "required": [
+          "body",
+          "totalItems"
+        ],
+        "title": "GetPlayerPer36StatsResponseDto"
+      },
+      "GetPlayerPerGameStatsResponseDto": {
+        "properties": {
+          "body": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerPerGameDto"
+            },
+            "type": "array",
+            "title": "Body"
+          },
+          "totalItems": {
+            "type": "integer",
+            "title": "Totalitems"
+          },
+          "responseCode": {
+            "type": "integer",
+            "title": "Responsecode",
+            "default": 200
+          }
+        },
+        "type": "object",
+        "required": [
+          "body",
+          "totalItems"
+        ],
+        "title": "GetPlayerPerGameStatsResponseDto"
+      },
+      "GetPlayerTotalStatsResponseDto": {
+        "properties": {
+          "body": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerTotalsDto"
+            },
+            "type": "array",
+            "title": "Body"
+          },
+          "totalItems": {
+            "type": "integer",
+            "title": "Totalitems"
+          },
+          "responseCode": {
+            "type": "integer",
+            "title": "Responsecode",
+            "default": 200
+          }
+        },
+        "type": "object",
+        "required": [
+          "body",
+          "totalItems"
+        ],
+        "title": "GetPlayerTotalStatsResponseDto"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ListPlayerGamesBySeasonRequestDto": {
+        "properties": {
+          "pageSize": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Pagesize",
+            "default": 50
+          },
+          "lastEvaluatedKey": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lastevaluatedkey"
+          }
+        },
+        "type": "object",
+        "title": "ListPlayerGamesBySeasonRequestDto"
+      },
+      "ListPlayerGamesBySeasonResponseDto": {
+        "properties": {
+          "body": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerGameDto"
+            },
+            "type": "array",
+            "title": "Body"
+          },
+          "lastEvaluatedKey": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lastevaluatedkey"
+          },
+          "totalItems": {
+            "type": "integer",
+            "title": "Totalitems"
+          },
+          "responseCode": {
+            "type": "integer",
+            "title": "Responsecode",
+            "default": 200
+          }
+        },
+        "type": "object",
+        "required": [
+          "body",
+          "totalItems"
+        ],
+        "title": "ListPlayerGamesBySeasonResponseDto"
+      },
+      "ListPlayerGamesRequestDto": {
+        "properties": {
+          "pageSize": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Pagesize",
+            "default": 50
+          },
+          "lastEvaluatedKey": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lastevaluatedkey"
+          }
+        },
+        "type": "object",
+        "title": "ListPlayerGamesRequestDto"
+      },
+      "ListPlayerGamesResponseDto": {
+        "properties": {
+          "body": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerGameDto"
+            },
+            "type": "array",
+            "title": "Body"
+          },
+          "lastEvaluatedKey": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lastevaluatedkey"
+          },
+          "totalItems": {
+            "type": "integer",
+            "title": "Totalitems"
+          },
+          "responseCode": {
+            "type": "integer",
+            "title": "Responsecode",
+            "default": 200
+          }
+        },
+        "type": "object",
+        "required": [
+          "body",
+          "totalItems"
+        ],
+        "title": "ListPlayerGamesResponseDto"
+      },
+      "ListPlayersByFirstNameRequestDto": {
+        "properties": {
+          "firstname": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Firstname"
+          },
+          "lastname": {
+            "type": "string",
+            "title": "Lastname",
+            "default": ""
+          },
+          "pageSize": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Pagesize",
+            "default": 50
+          },
+          "lastEvaluatedKey": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lastevaluatedkey"
+          }
+        },
+        "type": "object",
+        "required": [
+          "firstname"
+        ],
+        "title": "ListPlayersByFirstNameRequestDto"
+      },
+      "ListPlayersByFirstNameResponseDto": {
+        "properties": {
+          "body": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerMetadataDto"
+            },
+            "type": "array",
+            "title": "Body"
+          },
+          "totalItems": {
+            "type": "integer",
+            "title": "Totalitems"
+          },
+          "pageSize": {
+            "type": "integer",
+            "title": "Pagesize"
+          },
+          "lastEvaluatedKey": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lastevaluatedkey"
+          },
+          "responseCode": {
+            "type": "integer",
+            "title": "Responsecode",
+            "default": 200
+          }
+        },
+        "type": "object",
+        "required": [
+          "body",
+          "totalItems",
+          "pageSize"
+        ],
+        "title": "ListPlayersByFirstNameResponseDto"
+      },
+      "ListPlayersByLastNameRequestDto": {
+        "properties": {
+          "prefix": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Prefix"
+          },
+          "pageSize": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Pagesize",
+            "default": 50
+          },
+          "lastEvaluatedKey": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lastevaluatedkey"
+          }
+        },
+        "type": "object",
+        "required": [
+          "prefix"
+        ],
+        "title": "ListPlayersByLastNameRequestDto"
+      },
+      "ListPlayersByLastNameResponseDto": {
+        "properties": {
+          "body": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerMetadataDto"
+            },
+            "type": "array",
+            "title": "Body"
+          },
+          "totalItems": {
+            "type": "integer",
+            "title": "Totalitems"
+          },
+          "pageSize": {
+            "type": "integer",
+            "title": "Pagesize"
+          },
+          "lastEvaluatedKey": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lastevaluatedkey"
+          },
+          "responseCode": {
+            "type": "integer",
+            "title": "Responsecode",
+            "default": 200
+          }
+        },
+        "type": "object",
+        "required": [
+          "body",
+          "totalItems",
+          "pageSize"
+        ],
+        "title": "ListPlayersByLastNameResponseDto"
+      },
+      "ListPlayersRequestDto": {
+        "properties": {
+          "pageSize": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Pagesize",
+            "default": 50
+          },
+          "lastEvaluatedKey": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lastevaluatedkey"
+          }
+        },
+        "type": "object",
+        "title": "ListPlayersRequestDto"
+      },
+      "ListPlayersResponseDto": {
+        "properties": {
+          "body": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerMetadataDto"
+            },
+            "type": "array",
+            "title": "Body"
+          },
+          "lastEvaluatedKey": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lastevaluatedkey"
+          },
+          "totalItems": {
+            "type": "integer",
+            "title": "Totalitems"
+          },
+          "responseCode": {
+            "type": "integer",
+            "title": "Responsecode",
+            "default": 200
+          }
+        },
+        "type": "object",
+        "required": [
+          "body",
+          "totalItems"
+        ],
+        "title": "ListPlayersResponseDto"
+      },
+      "PlayerAdvancedDto": {
+        "properties": {
+          "playerId": {
+            "type": "string",
+            "title": "Playerid"
+          },
+          "statType": {
+            "type": "string",
+            "title": "Stattype"
+          },
+          "seasonType": {
+            "type": "string",
+            "title": "Seasontype"
+          },
+          "season": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Season"
+          },
+          "age": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Age"
+          },
+          "team": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Team"
+          },
+          "position": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Position"
+          },
+          "gamesPlayed": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gamesplayed"
+          },
+          "minutesPlayed": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Minutesplayed"
+          },
+          "playerEfficiencyRating": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Playerefficiencyrating"
+          },
+          "trueShootingPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Trueshootingpercentage"
+          },
+          "threePointAttemptRate": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threepointattemptrate"
+          },
+          "freeThrowAttemptRate": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Freethrowattemptrate"
+          },
+          "offensiveReboundPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offensivereboundpercentage"
+          },
+          "defensiveReboundPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Defensivereboundpercentage"
+          },
+          "totalReboundPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Totalreboundpercentage"
+          },
+          "assistPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Assistpercentage"
+          },
+          "stealPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stealpercentage"
+          },
+          "blockPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Blockpercentage"
+          },
+          "turnoverPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Turnoverpercentage"
+          },
+          "usagePercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Usagepercentage"
+          },
+          "offensiveWinShares": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offensivewinshares"
+          },
+          "defensiveWinShares": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Defensivewinshares"
+          },
+          "winShares": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Winshares"
+          },
+          "winSharesPer48": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Winsharesper48"
+          },
+          "offensiveBoxPlusMinus": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offensiveboxplusminus"
+          },
+          "defensiveBoxPlusMinus": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Defensiveboxplusminus"
+          },
+          "boxPlusMinus": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Boxplusminus"
+          },
+          "valueOverReplacementPlayer": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Valueoverreplacementplayer"
+          }
+        },
+        "type": "object",
+        "required": [
+          "playerId",
+          "statType",
+          "seasonType"
+        ],
+        "title": "PlayerAdvancedDto"
+      },
+      "PlayerGameDto": {
+        "properties": {
+          "playerId": {
+            "type": "string",
+            "title": "Playerid"
+          },
+          "statType": {
+            "type": "string",
+            "title": "Stattype"
+          },
+          "season": {
+            "type": "string",
+            "title": "Season"
+          },
+          "gameId": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gameid"
+          },
+          "age": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Age"
+          },
+          "teamPlayed": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Teamplayed"
+          },
+          "opponent": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Opponent"
+          },
+          "result": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Result"
+          },
+          "isStarter": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Isstarter"
+          },
+          "minutesPlayed": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Minutesplayed"
+          },
+          "fieldGoalsMade": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fieldgoalsmade"
+          },
+          "fieldGoalsAttempted": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fieldgoalsattempted"
+          },
+          "fieldGoalPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fieldgoalpercentage"
+          },
+          "threePointerMade": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threepointermade"
+          },
+          "threePointersAttempted": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threepointersattempted"
+          },
+          "threePointPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threepointpercentage"
+          },
+          "freeThrowsMade": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Freethrowsmade"
+          },
+          "freeThrowsAttempted": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Freethrowsattempted"
+          },
+          "freeThrowPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Freethrowpercentage"
+          },
+          "offensiveRebounds": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offensiverebounds"
+          },
+          "defensiveRebounds": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Defensiverebounds"
+          },
+          "totalRebounds": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Totalrebounds"
+          },
+          "assists": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Assists"
+          },
+          "steals": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Steals"
+          },
+          "blocks": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Blocks"
+          },
+          "turnovers": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Turnovers"
+          },
+          "personalFouls": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Personalfouls"
+          },
+          "points": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Points"
+          },
+          "gameScore": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gamescore"
+          },
+          "isPlayoffs": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Isplayoffs"
+          },
+          "dnpReason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dnpreason"
+          }
+        },
+        "type": "object",
+        "required": [
+          "playerId",
+          "statType",
+          "season"
+        ],
+        "title": "PlayerGameDto"
+      },
+      "PlayerMetadataDto": {
+        "properties": {
+          "playerId": {
+            "type": "string",
+            "title": "Playerid"
+          },
+          "firstName": {
+            "type": "string",
+            "title": "Firstname"
+          },
+          "lastName": {
+            "type": "string",
+            "title": "Lastname"
+          },
+          "height": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Height"
+          },
+          "weight": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weight"
+          },
+          "positions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Positions"
+          },
+          "dateBorn": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dateborn"
+          },
+          "dateDied": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Datedied"
+          },
+          "birthPlace": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Birthplace"
+          },
+          "draftInfo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Draftinfo"
+          },
+          "hofInductionInfo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Hofinductioninfo"
+          },
+          "nbaDebut": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nbadebut"
+          },
+          "accolades": {
+            "anyOf": [
+              {
+                "items": {},
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Accolades"
+          },
+          "teams": {
+            "anyOf": [
+              {
+                "items": {},
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Teams"
+          },
+          "headshotUrl": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Headshoturl"
+          }
+        },
+        "type": "object",
+        "required": [
+          "playerId",
+          "firstName",
+          "lastName"
+        ],
+        "title": "PlayerMetadataDto"
+      },
+      "PlayerPer100Dto": {
+        "properties": {
+          "playerId": {
+            "type": "string",
+            "title": "Playerid"
+          },
+          "statType": {
+            "type": "string",
+            "title": "Stattype"
+          },
+          "seasonType": {
+            "type": "string",
+            "title": "Seasontype"
+          },
+          "season": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Season"
+          },
+          "age": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Age"
+          },
+          "team": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Team"
+          },
+          "position": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Position"
+          },
+          "gamesPlayed": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gamesplayed"
+          },
+          "gamesStarted": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gamesstarted"
+          },
+          "minutesPlayed": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Minutesplayed"
+          },
+          "fieldGoalsMadePer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fieldgoalsmadeper100Possessions"
+          },
+          "fieldGoalAttemptsPer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fieldgoalattemptsper100Possessions"
+          },
+          "fieldGoalPercentagePer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fieldgoalpercentageper100Possessions"
+          },
+          "threePointFieldGoalsMadePer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threepointfieldgoalsmadeper100Possessions"
+          },
+          "threePointFieldGoalAttemptsPer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threepointfieldgoalattemptsper100Possessions"
+          },
+          "threePointFieldGoalPercentagePer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threepointfieldgoalpercentageper100Possessions"
+          },
+          "twoPointFieldGoalsMadePer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Twopointfieldgoalsmadeper100Possessions"
+          },
+          "twoPointFieldGoalAttemptsPer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Twopointfieldgoalattemptsper100Possessions"
+          },
+          "twoPointFieldGoalPercentagePer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Twopointfieldgoalpercentageper100Possessions"
+          },
+          "freeThrowsMadePer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Freethrowsmadeper100Possessions"
+          },
+          "freeThrowAttemptsPer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Freethrowattemptsper100Possessions"
+          },
+          "freeThrowPercentagePer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Freethrowpercentageper100Possessions"
+          },
+          "offensiveReboundsPer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offensivereboundsper100Possessions"
+          },
+          "defensiveReboundsPer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Defensivereboundsper100Possessions"
+          },
+          "totalReboundsPer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Totalreboundsper100Possessions"
+          },
+          "assistsPer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Assistsper100Possessions"
+          },
+          "stealsPer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stealsper100Possessions"
+          },
+          "blocksPer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Blocksper100Possessions"
+          },
+          "turnoversPer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Turnoversper100Possessions"
+          },
+          "personalFoulsPer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Personalfoulsper100Possessions"
+          },
+          "pointsPer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pointsper100Possessions"
+          },
+          "offensiveRatingPer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offensiveratingper100Possessions"
+          },
+          "defensiveRatingPer100Possessions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Defensiveratingper100Possessions"
+          }
+        },
+        "type": "object",
+        "required": [
+          "playerId",
+          "statType",
+          "seasonType"
+        ],
+        "title": "PlayerPer100Dto"
+      },
+      "PlayerPer36Dto": {
+        "properties": {
+          "playerId": {
+            "type": "string",
+            "title": "Playerid"
+          },
+          "statType": {
+            "type": "string",
+            "title": "Stattype"
+          },
+          "seasonType": {
+            "type": "string",
+            "title": "Seasontype"
+          },
+          "season": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Season"
+          },
+          "age": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Age"
+          },
+          "team": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Team"
+          },
+          "position": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Position"
+          },
+          "gamesPlayed": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gamesplayed"
+          },
+          "gamesStarted": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gamesstarted"
+          },
+          "minutesPlayed": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Minutesplayed"
+          },
+          "fieldGoalsMadePer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fieldgoalsmadeper36Minutes"
+          },
+          "fieldGoalAttemptsPer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fieldgoalattemptsper36Minutes"
+          },
+          "fieldGoalPercentagePer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fieldgoalpercentageper36Minutes"
+          },
+          "threePointFieldGoalsMadePer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threepointfieldgoalsmadeper36Minutes"
+          },
+          "threePointFieldGoalAttemptsPer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threepointfieldgoalattemptsper36Minutes"
+          },
+          "threePointFieldGoalPercentagePer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threepointfieldgoalpercentageper36Minutes"
+          },
+          "twoPointFieldGoalsMadePer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Twopointfieldgoalsmadeper36Minutes"
+          },
+          "twoPointFieldGoalAttemptsPer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Twopointfieldgoalattemptsper36Minutes"
+          },
+          "twoPointFieldGoalPercentagePer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Twopointfieldgoalpercentageper36Minutes"
+          },
+          "freeThrowsMadePer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Freethrowsmadeper36Minutes"
+          },
+          "freeThrowAttemptsPer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Freethrowattemptsper36Minutes"
+          },
+          "freeThrowPercentagePer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Freethrowpercentageper36Minutes"
+          },
+          "offensiveReboundsPer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offensivereboundsper36Minutes"
+          },
+          "defensiveReboundsPer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Defensivereboundsper36Minutes"
+          },
+          "totalReboundsPer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Totalreboundsper36Minutes"
+          },
+          "assistsPer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Assistsper36Minutes"
+          },
+          "stealsPer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stealsper36Minutes"
+          },
+          "blocksPer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Blocksper36Minutes"
+          },
+          "turnoversPer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Turnoversper36Minutes"
+          },
+          "personalFoulsPer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Personalfoulsper36Minutes"
+          },
+          "pointsPer36Minutes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pointsper36Minutes"
+          }
+        },
+        "type": "object",
+        "required": [
+          "playerId",
+          "statType",
+          "seasonType"
+        ],
+        "title": "PlayerPer36Dto"
+      },
+      "PlayerPerGameDto": {
+        "properties": {
+          "playerId": {
+            "type": "string",
+            "title": "Playerid"
+          },
+          "statType": {
+            "type": "string",
+            "title": "Stattype"
+          },
+          "seasonType": {
+            "type": "string",
+            "title": "Seasontype"
+          },
+          "season": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Season"
+          },
+          "age": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Age"
+          },
+          "team": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Team"
+          },
+          "position": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Position"
+          },
+          "gamesPlayed": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gamesplayed"
+          },
+          "gamesStarted": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gamesstarted"
+          },
+          "minutesPerGame": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Minutespergame"
+          },
+          "fieldGoalsMadePerGame": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fieldgoalsmadepergame"
+          },
+          "fieldGoalAttemptsPerGame": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fieldgoalattemptspergame"
+          },
+          "fieldGoalPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fieldgoalpercentage"
+          },
+          "threePointFieldGoalsMadePerGame": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threepointfieldgoalsmadepergame"
+          },
+          "threePointFieldGoalAttemptsPerGame": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threepointfieldgoalattemptspergame"
+          },
+          "threePointFieldGoalPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threepointfieldgoalpercentage"
+          },
+          "twoPointFieldGoalsMadePerGame": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Twopointfieldgoalsmadepergame"
+          },
+          "twoPointFieldGoalAttemptsPerGame": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Twopointfieldgoalattemptspergame"
+          },
+          "twoPointFieldGoalPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Twopointfieldgoalpercentage"
+          },
+          "effectiveFieldGoalPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effectivefieldgoalpercentage"
+          },
+          "freeThrowsMadePerGame": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Freethrowsmadepergame"
+          },
+          "freeThrowAttemptsPerGame": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Freethrowattemptspergame"
+          },
+          "freeThrowPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Freethrowpercentage"
+          },
+          "offensiveReboundsPerGame": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offensivereboundspergame"
+          },
+          "defensiveReboundsPerGame": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Defensivereboundspergame"
+          },
+          "totalReboundsPerGame": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Totalreboundspergame"
+          },
+          "assistsPerGame": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Assistspergame"
+          },
+          "stealsPerGame": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stealspergame"
+          },
+          "blocksPerGame": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Blockspergame"
+          },
+          "turnoversPerGame": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Turnoverspergame"
+          },
+          "personalFoulsPerGame": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Personalfoulspergame"
+          },
+          "pointsPerGame": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pointspergame"
+          }
+        },
+        "type": "object",
+        "required": [
+          "playerId",
+          "statType",
+          "seasonType"
+        ],
+        "title": "PlayerPerGameDto"
+      },
+      "PlayerSalaryDto": {
+        "properties": {
+          "playerId": {
+            "type": "string",
+            "title": "Playerid"
+          },
+          "statType": {
+            "type": "string",
+            "title": "Stattype"
+          },
+          "season": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Season"
+          },
+          "team": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Team"
+          },
+          "salary": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Salary"
+          }
+        },
+        "type": "object",
+        "required": [
+          "playerId",
+          "statType"
+        ],
+        "title": "PlayerSalaryDto"
+      },
+      "PlayerTotalsDto": {
+        "properties": {
+          "playerId": {
+            "type": "string",
+            "title": "Playerid"
+          },
+          "statType": {
+            "type": "string",
+            "title": "Stattype"
+          },
+          "seasonType": {
+            "type": "string",
+            "title": "Seasontype"
+          },
+          "season": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Season"
+          },
+          "age": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Age"
+          },
+          "team": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Team"
+          },
+          "position": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Position"
+          },
+          "gamesPlayed": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gamesplayed"
+          },
+          "gamesStarted": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gamesstarted"
+          },
+          "minutesPlayed": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Minutesplayed"
+          },
+          "fieldGoalsMade": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fieldgoalsmade"
+          },
+          "fieldGoalsAttempted": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fieldgoalsattempted"
+          },
+          "fieldGoalPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fieldgoalpercentage"
+          },
+          "threePointFieldGoalsMade": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threepointfieldgoalsmade"
+          },
+          "threePointFieldGoalsAttempted": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threepointfieldgoalsattempted"
+          },
+          "threePointFieldGoalPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threepointfieldgoalpercentage"
+          },
+          "twoPointFieldGoalsMade": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Twopointfieldgoalsmade"
+          },
+          "twoPointFieldGoalsAttempted": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Twopointfieldgoalsattempted"
+          },
+          "twoPointFieldGoalPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Twopointfieldgoalpercentage"
+          },
+          "effectiveFieldGoalPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effectivefieldgoalpercentage"
+          },
+          "freeThrowsMade": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Freethrowsmade"
+          },
+          "freeThrowsAttempted": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Freethrowsattempted"
+          },
+          "freeThrowPercentage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Freethrowpercentage"
+          },
+          "offensiveRebounds": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offensiverebounds"
+          },
+          "defensiveRebounds": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Defensiverebounds"
+          },
+          "totalRebounds": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Totalrebounds"
+          },
+          "totalAssists": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Totalassists"
+          },
+          "totalSteals": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Totalsteals"
+          },
+          "totalBlocks": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Totalblocks"
+          },
+          "totalTurnovers": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Totalturnovers"
+          },
+          "totalPersonalFouls": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Totalpersonalfouls"
+          },
+          "totalPoints": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Totalpoints"
+          },
+          "tripleDoubles": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tripledoubles"
+          }
+        },
+        "type": "object",
+        "required": [
+          "playerId",
+          "statType",
+          "seasonType"
+        ],
+        "title": "PlayerTotalsDto"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "ResponseValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "ResponseValidationError"
+      }
+    }
+  }
+}
