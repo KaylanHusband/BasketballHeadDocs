@@ -7,21 +7,34 @@
   },
   "servers": [
     {
-      "url": "/"
+      "url": "https://basketball-head.p.rapidapi.com",
+      "description": "RapidAPI public endpoint"
+    },
+    {
+      "url": "/",
+      "description": "Relative URL for the hosted Swagger UI"
     }
   ],
   "paths": {
     "/players/{player_id}": {
       "get": {
+        "tags": [
+          "Player Discovery"
+        ],
         "summary": "GET /players/{player_id}",
-        "description": "Get player metadata by player ID.",
+        "description": "Get one player metadata record by Basketball Reference player ID, for example jamesle01.",
         "operationId": "getPlayerByPlayerId",
         "parameters": [
           {
+            "description": "Basketball Reference player ID, for example jamesle01.",
             "required": true,
             "schema": {
               "type": "string",
-              "title": "Player Id"
+              "title": "Player Id",
+              "description": "Basketball Reference player ID, for example jamesle01.",
+              "examples": [
+                "jamesle01"
+              ]
             },
             "name": "player_id",
             "in": "path"
@@ -53,21 +66,29 @@
     },
     "/players/{player_id}/stats/PerGame": {
       "get": {
+        "tags": [
+          "Player Career Stats"
+        ],
         "summary": "GET /players/{player_id}/stats/PerGame",
-        "description": "Get per-game stats for a player.",
+        "description": "Get per-game season stat rows for a player. Optional filters: seasonType can be Regular or Playoffs; seasonId must use YYYY-YYYY format, for example 2025-2026.",
         "operationId": "getPlayerPerGameStats",
         "parameters": [
           {
+            "description": "Basketball Reference player ID, for example jamesle01.",
             "required": true,
             "schema": {
               "type": "string",
-              "title": "Player Id"
+              "title": "Player Id",
+              "description": "Basketball Reference player ID, for example jamesle01.",
+              "examples": [
+                "jamesle01"
+              ]
             },
             "name": "player_id",
             "in": "path"
           },
           {
-            "description": "Filter by season type, e.g. Regular or Playoffs.",
+            "description": "Filter by season type. Valid values: Regular or Playoffs.",
             "required": false,
             "schema": {
               "anyOf": [
@@ -79,25 +100,32 @@
                 }
               ],
               "title": "Seasontype",
-              "description": "Filter by season type, e.g. Regular or Playoffs."
+              "description": "Filter by season type. Valid values: Regular or Playoffs.",
+              "examples": [
+                "Regular"
+              ]
             },
             "name": "seasonType",
             "in": "query"
           },
           {
-            "description": "Filter by season, e.g. 2023-24.",
+            "description": "Filter by NBA season in YYYY-YYYY format, for example 2025-2026.",
             "required": false,
             "schema": {
               "anyOf": [
                 {
-                  "type": "string"
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{4}$"
                 },
                 {
                   "type": "null"
                 }
               ],
               "title": "Seasonid",
-              "description": "Filter by season, e.g. 2023-24."
+              "description": "Filter by NBA season in YYYY-YYYY format, for example 2025-2026.",
+              "examples": [
+                "2025-2026"
+              ]
             },
             "name": "seasonId",
             "in": "query"
@@ -129,21 +157,29 @@
     },
     "/players/{player_id}/stats/Totals": {
       "get": {
+        "tags": [
+          "Player Career Stats"
+        ],
         "summary": "GET /players/{player_id}/stats/Totals",
-        "description": "Get total stats for a player.",
+        "description": "Get total season stat rows for a player. Optional filters: seasonType can be Regular or Playoffs; seasonId must use YYYY-YYYY format, for example 2025-2026.",
         "operationId": "getPlayerTotalStats",
         "parameters": [
           {
+            "description": "Basketball Reference player ID, for example jamesle01.",
             "required": true,
             "schema": {
               "type": "string",
-              "title": "Player Id"
+              "title": "Player Id",
+              "description": "Basketball Reference player ID, for example jamesle01.",
+              "examples": [
+                "jamesle01"
+              ]
             },
             "name": "player_id",
             "in": "path"
           },
           {
-            "description": "Filter by season type, e.g. Regular or Playoffs.",
+            "description": "Filter by season type. Valid values: Regular or Playoffs.",
             "required": false,
             "schema": {
               "anyOf": [
@@ -155,25 +191,32 @@
                 }
               ],
               "title": "Seasontype",
-              "description": "Filter by season type, e.g. Regular or Playoffs."
+              "description": "Filter by season type. Valid values: Regular or Playoffs.",
+              "examples": [
+                "Regular"
+              ]
             },
             "name": "seasonType",
             "in": "query"
           },
           {
-            "description": "Filter by season, e.g. 2023-24.",
+            "description": "Filter by NBA season in YYYY-YYYY format, for example 2025-2026.",
             "required": false,
             "schema": {
               "anyOf": [
                 {
-                  "type": "string"
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{4}$"
                 },
                 {
                   "type": "null"
                 }
               ],
               "title": "Seasonid",
-              "description": "Filter by season, e.g. 2023-24."
+              "description": "Filter by NBA season in YYYY-YYYY format, for example 2025-2026.",
+              "examples": [
+                "2025-2026"
+              ]
             },
             "name": "seasonId",
             "in": "query"
@@ -205,21 +248,29 @@
     },
     "/players/{player_id}/stats/Per100": {
       "get": {
+        "tags": [
+          "Player Career Stats"
+        ],
         "summary": "GET /players/{player_id}/stats/Per100",
-        "description": "Get per-100-possession stats for a player.",
+        "description": "Get per-100-possession season stat rows for a player. Optional filters: seasonType can be Regular or Playoffs; seasonId must use YYYY-YYYY format, for example 2025-2026.",
         "operationId": "getPlayerPer100Stats",
         "parameters": [
           {
+            "description": "Basketball Reference player ID, for example jamesle01.",
             "required": true,
             "schema": {
               "type": "string",
-              "title": "Player Id"
+              "title": "Player Id",
+              "description": "Basketball Reference player ID, for example jamesle01.",
+              "examples": [
+                "jamesle01"
+              ]
             },
             "name": "player_id",
             "in": "path"
           },
           {
-            "description": "Filter by season type, e.g. Regular or Playoffs.",
+            "description": "Filter by season type. Valid values: Regular or Playoffs.",
             "required": false,
             "schema": {
               "anyOf": [
@@ -231,25 +282,32 @@
                 }
               ],
               "title": "Seasontype",
-              "description": "Filter by season type, e.g. Regular or Playoffs."
+              "description": "Filter by season type. Valid values: Regular or Playoffs.",
+              "examples": [
+                "Regular"
+              ]
             },
             "name": "seasonType",
             "in": "query"
           },
           {
-            "description": "Filter by season, e.g. 2023-24.",
+            "description": "Filter by NBA season in YYYY-YYYY format, for example 2025-2026.",
             "required": false,
             "schema": {
               "anyOf": [
                 {
-                  "type": "string"
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{4}$"
                 },
                 {
                   "type": "null"
                 }
               ],
               "title": "Seasonid",
-              "description": "Filter by season, e.g. 2023-24."
+              "description": "Filter by NBA season in YYYY-YYYY format, for example 2025-2026.",
+              "examples": [
+                "2025-2026"
+              ]
             },
             "name": "seasonId",
             "in": "query"
@@ -281,21 +339,29 @@
     },
     "/players/{player_id}/stats/Per36": {
       "get": {
+        "tags": [
+          "Player Career Stats"
+        ],
         "summary": "GET /players/{player_id}/stats/Per36",
-        "description": "Get per-36-minute stats for a player.",
+        "description": "Get per-36-minute season stat rows for a player. Optional filters: seasonType can be Regular or Playoffs; seasonId must use YYYY-YYYY format, for example 2025-2026.",
         "operationId": "getPlayerPer36Stats",
         "parameters": [
           {
+            "description": "Basketball Reference player ID, for example jamesle01.",
             "required": true,
             "schema": {
               "type": "string",
-              "title": "Player Id"
+              "title": "Player Id",
+              "description": "Basketball Reference player ID, for example jamesle01.",
+              "examples": [
+                "jamesle01"
+              ]
             },
             "name": "player_id",
             "in": "path"
           },
           {
-            "description": "Filter by season type, e.g. Regular or Playoffs.",
+            "description": "Filter by season type. Valid values: Regular or Playoffs.",
             "required": false,
             "schema": {
               "anyOf": [
@@ -307,25 +373,32 @@
                 }
               ],
               "title": "Seasontype",
-              "description": "Filter by season type, e.g. Regular or Playoffs."
+              "description": "Filter by season type. Valid values: Regular or Playoffs.",
+              "examples": [
+                "Regular"
+              ]
             },
             "name": "seasonType",
             "in": "query"
           },
           {
-            "description": "Filter by season, e.g. 2023-24.",
+            "description": "Filter by NBA season in YYYY-YYYY format, for example 2025-2026.",
             "required": false,
             "schema": {
               "anyOf": [
                 {
-                  "type": "string"
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{4}$"
                 },
                 {
                   "type": "null"
                 }
               ],
               "title": "Seasonid",
-              "description": "Filter by season, e.g. 2023-24."
+              "description": "Filter by NBA season in YYYY-YYYY format, for example 2025-2026.",
+              "examples": [
+                "2025-2026"
+              ]
             },
             "name": "seasonId",
             "in": "query"
@@ -357,21 +430,29 @@
     },
     "/players/{player_id}/stats/Advanced": {
       "get": {
+        "tags": [
+          "Player Career Stats"
+        ],
         "summary": "GET /players/{player_id}/stats/Advanced",
-        "description": "Get advanced stats for a player.",
+        "description": "Get advanced season stat rows for a player. Optional filters: seasonType can be Regular or Playoffs; seasonId must use YYYY-YYYY format, for example 2025-2026.",
         "operationId": "getPlayerAdvancedStats",
         "parameters": [
           {
+            "description": "Basketball Reference player ID, for example jamesle01.",
             "required": true,
             "schema": {
               "type": "string",
-              "title": "Player Id"
+              "title": "Player Id",
+              "description": "Basketball Reference player ID, for example jamesle01.",
+              "examples": [
+                "jamesle01"
+              ]
             },
             "name": "player_id",
             "in": "path"
           },
           {
-            "description": "Filter by season type, e.g. Regular or Playoffs.",
+            "description": "Filter by season type. Valid values: Regular or Playoffs.",
             "required": false,
             "schema": {
               "anyOf": [
@@ -383,25 +464,32 @@
                 }
               ],
               "title": "Seasontype",
-              "description": "Filter by season type, e.g. Regular or Playoffs."
+              "description": "Filter by season type. Valid values: Regular or Playoffs.",
+              "examples": [
+                "Regular"
+              ]
             },
             "name": "seasonType",
             "in": "query"
           },
           {
-            "description": "Filter by season, e.g. 2023-24.",
+            "description": "Filter by NBA season in YYYY-YYYY format, for example 2025-2026.",
             "required": false,
             "schema": {
               "anyOf": [
                 {
-                  "type": "string"
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{4}$"
                 },
                 {
                   "type": "null"
                 }
               ],
               "title": "Seasonid",
-              "description": "Filter by season, e.g. 2023-24."
+              "description": "Filter by NBA season in YYYY-YYYY format, for example 2025-2026.",
+              "examples": [
+                "2025-2026"
+              ]
             },
             "name": "seasonId",
             "in": "query"
@@ -433,15 +521,23 @@
     },
     "/players/{player_id}/stats/Salary": {
       "get": {
+        "tags": [
+          "Player Career Stats"
+        ],
         "summary": "GET /players/{player_id}/stats/Salary",
-        "description": "Get career salary records for a player.",
+        "description": "Get career salary rows for a player by Basketball Reference player ID, for example jamesle01.",
         "operationId": "getPlayerCareerSalaries",
         "parameters": [
           {
+            "description": "Basketball Reference player ID, for example jamesle01.",
             "required": true,
             "schema": {
               "type": "string",
-              "title": "Player Id"
+              "title": "Player Id",
+              "description": "Basketball Reference player ID, for example jamesle01.",
+              "examples": [
+                "jamesle01"
+              ]
             },
             "name": "player_id",
             "in": "path"
@@ -473,15 +569,23 @@
     },
     "/players/{player_id}/games": {
       "post": {
+        "tags": [
+          "Player Game Stats"
+        ],
         "summary": "POST /players/{player_id}/games",
-        "description": "List game log records for a player with pagination support.",
+        "description": "List player game log rows for all available seasons with pagination support.",
         "operationId": "listPlayerGames",
         "parameters": [
           {
+            "description": "Basketball Reference player ID, for example jamesle01.",
             "required": true,
             "schema": {
               "type": "string",
-              "title": "Player Id"
+              "title": "Player Id",
+              "description": "Basketball Reference player ID, for example jamesle01.",
+              "examples": [
+                "jamesle01"
+              ]
             },
             "name": "player_id",
             "in": "path"
@@ -523,24 +627,38 @@
     },
     "/players/{player_id}/games/{season_id}": {
       "post": {
+        "tags": [
+          "Player Game Stats"
+        ],
         "summary": "POST /players/{player_id}/games/{season_id}",
-        "description": "List game log records for a player and season with pagination support.",
+        "description": "List player game log rows for one NBA season with pagination support. The season_id path value is the ending season year, for example 2026 for the 2025-2026 season.",
         "operationId": "listPlayerGamesBySeason",
         "parameters": [
           {
+            "description": "Basketball Reference player ID, for example jamesle01.",
             "required": true,
             "schema": {
               "type": "string",
-              "title": "Player Id"
+              "title": "Player Id",
+              "description": "Basketball Reference player ID, for example jamesle01.",
+              "examples": [
+                "jamesle01"
+              ]
             },
             "name": "player_id",
             "in": "path"
           },
           {
+            "description": "Ending NBA season year, for example 2026 for the 2025-2026 season.",
             "required": true,
             "schema": {
               "type": "string",
-              "title": "Season Id"
+              "pattern": "^\\d{4}$",
+              "title": "Season Id",
+              "description": "Ending NBA season year, for example 2026 for the 2025-2026 season.",
+              "examples": [
+                "2026"
+              ]
             },
             "name": "season_id",
             "in": "path"
@@ -582,24 +700,38 @@
     },
     "/teams/{team_id}/metadata/{season_id}": {
       "get": {
+        "tags": [
+          "Team Information"
+        ],
         "summary": "GET /teams/{team_id}/metadata/{season_id}",
-        "description": "Get team metadata by team ID and season.",
+        "description": "Get team metadata by team ID and season. The season_id path value must use YYYY-YYYY format, for example 2025-2026.",
         "operationId": "getTeamMetadata",
         "parameters": [
           {
+            "description": "Basketball Reference team ID, for example LAL.",
             "required": true,
             "schema": {
               "type": "string",
-              "title": "Team Id"
+              "title": "Team Id",
+              "description": "Basketball Reference team ID, for example LAL.",
+              "examples": [
+                "LAL"
+              ]
             },
             "name": "team_id",
             "in": "path"
           },
           {
+            "description": "NBA season in YYYY-YYYY format, for example 2025-2026.",
             "required": true,
             "schema": {
               "type": "string",
-              "title": "Season Id"
+              "pattern": "^\\d{4}-\\d{4}$",
+              "title": "Season Id",
+              "description": "NBA season in YYYY-YYYY format, for example 2025-2026.",
+              "examples": [
+                "2025-2026"
+              ]
             },
             "name": "season_id",
             "in": "path"
@@ -631,24 +763,38 @@
     },
     "/teams/{team_id}/roster/{season_id}": {
       "get": {
+        "tags": [
+          "Team Information"
+        ],
         "summary": "GET /teams/{team_id}/roster/{season_id}",
-        "description": "Get team roster by team ID and season.",
+        "description": "Get team roster by team ID and season. The season_id path value must use YYYY-YYYY format, for example 2025-2026.",
         "operationId": "getTeamRoster",
         "parameters": [
           {
+            "description": "Basketball Reference team ID, for example LAL.",
             "required": true,
             "schema": {
               "type": "string",
-              "title": "Team Id"
+              "title": "Team Id",
+              "description": "Basketball Reference team ID, for example LAL.",
+              "examples": [
+                "LAL"
+              ]
             },
             "name": "team_id",
             "in": "path"
           },
           {
+            "description": "NBA season in YYYY-YYYY format, for example 2025-2026.",
             "required": true,
             "schema": {
               "type": "string",
-              "title": "Season Id"
+              "pattern": "^\\d{4}-\\d{4}$",
+              "title": "Season Id",
+              "description": "NBA season in YYYY-YYYY format, for example 2025-2026.",
+              "examples": [
+                "2025-2026"
+              ]
             },
             "name": "season_id",
             "in": "path"
@@ -680,24 +826,38 @@
     },
     "/teams/{team_id}/schedule/{season_id}": {
       "get": {
+        "tags": [
+          "Team Information"
+        ],
         "summary": "GET /teams/{team_id}/schedule/{season_id}",
-        "description": "Get team schedule by team ID and season.",
+        "description": "Get team schedule by team ID and season. The season_id path value must use YYYY-YYYY format, for example 2025-2026.",
         "operationId": "getTeamSchedule",
         "parameters": [
           {
+            "description": "Basketball Reference team ID, for example LAL.",
             "required": true,
             "schema": {
               "type": "string",
-              "title": "Team Id"
+              "title": "Team Id",
+              "description": "Basketball Reference team ID, for example LAL.",
+              "examples": [
+                "LAL"
+              ]
             },
             "name": "team_id",
             "in": "path"
           },
           {
+            "description": "NBA season in YYYY-YYYY format, for example 2025-2026.",
             "required": true,
             "schema": {
               "type": "string",
-              "title": "Season Id"
+              "pattern": "^\\d{4}-\\d{4}$",
+              "title": "Season Id",
+              "description": "NBA season in YYYY-YYYY format, for example 2025-2026.",
+              "examples": [
+                "2025-2026"
+              ]
             },
             "name": "season_id",
             "in": "path"
@@ -729,8 +889,11 @@
     },
     "/players": {
       "post": {
+        "tags": [
+          "Player Discovery"
+        ],
         "summary": "POST /players",
-        "description": "List players by first name index with pagination support.",
+        "description": "List player metadata records with pagination support. Use this endpoint for broad player discovery.",
         "operationId": "listPlayers",
         "requestBody": {
           "content": {
@@ -768,8 +931,11 @@
     },
     "/players/search": {
       "post": {
+        "tags": [
+          "Player Discovery"
+        ],
         "summary": "POST /players/search",
-        "description": "List players matching a first name and optional last name prefix.",
+        "description": "List player metadata records matching a lowercase request body field named firstname and optional lastname prefix.",
         "operationId": "listPlayersByFirstName",
         "requestBody": {
           "content": {
@@ -807,8 +973,11 @@
     },
     "/players/lastname": {
       "post": {
+        "tags": [
+          "Player Discovery"
+        ],
         "summary": "POST /players/lastname",
-        "description": "List players matching a last name prefix.",
+        "description": "List player metadata records matching a last name prefix with pagination support.",
         "operationId": "listPlayersByLastName",
         "requestBody": {
           "content": {
@@ -843,30 +1012,6 @@
           }
         }
       }
-    },
-    "/players/healthcheck": {
-      "get": {
-        "summary": "GET /players/healthcheck",
-        "operationId": "healthcheck_players_healthcheck_get",
-        "responses": {
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {}
-            }
-          }
-        }
-      }
     }
   },
   "components": {
@@ -895,7 +1040,28 @@
           "body",
           "totalItems"
         ],
-        "title": "GetPlayerAdvancedStatsResponseDto"
+        "title": "GetPlayerAdvancedStatsResponseDto",
+        "examples": [
+          {
+            "body": [
+              {
+                "age": "41",
+                "playerEfficiencyRating": "22.1",
+                "playerId": "jamesle01",
+                "position": "PF",
+                "season": "2025-2026",
+                "seasonType": "Regular",
+                "statType": "Advanced",
+                "team": "LAL",
+                "trueShootingPercentage": ".620",
+                "usagePercentage": "28.4",
+                "winShares": "8.2"
+              }
+            ],
+            "responseCode": 200,
+            "totalItems": 1
+          }
+        ]
       },
       "GetPlayerByPlayerIdResponseDto": {
         "properties": {
@@ -917,7 +1083,29 @@
           "body",
           "totalItems"
         ],
-        "title": "GetPlayerByPlayerIdResponseDto"
+        "title": "GetPlayerByPlayerIdResponseDto",
+        "examples": [
+          {
+            "body": {
+              "accolades": [],
+              "birthPlace": "Akron, Ohio",
+              "dateBorn": "December 30, 1984",
+              "draftInfo": "2003: Rd 1, Pk 1 (CLE)",
+              "firstName": "LeBron",
+              "headshotUrl": "https://www.basketball-reference.com/req/202106291/images/headshots/jamesle01.jpg",
+              "height": "6-9",
+              "hofInductionInfo": null,
+              "lastName": "James",
+              "nbaDebut": "October 29, 2003",
+              "playerId": "jamesle01",
+              "positions": "Small Forward, Power Forward, Point Guard",
+              "teams": [],
+              "weight": "250lb"
+            },
+            "responseCode": 200,
+            "totalItems": 1
+          }
+        ]
       },
       "GetPlayerCareerSalariesResponseDto": {
         "properties": {
@@ -943,7 +1131,22 @@
           "body",
           "totalItems"
         ],
-        "title": "GetPlayerCareerSalariesResponseDto"
+        "title": "GetPlayerCareerSalariesResponseDto",
+        "examples": [
+          {
+            "body": [
+              {
+                "playerId": "jamesle01",
+                "salary": "$52,627,153",
+                "season": "2025-2026",
+                "statType": "Salary",
+                "team": "LAL"
+              }
+            ],
+            "responseCode": 200,
+            "totalItems": 1
+          }
+        ]
       },
       "GetPlayerPer100StatsResponseDto": {
         "properties": {
@@ -969,7 +1172,27 @@
           "body",
           "totalItems"
         ],
-        "title": "GetPlayerPer100StatsResponseDto"
+        "title": "GetPlayerPer100StatsResponseDto",
+        "examples": [
+          {
+            "body": [
+              {
+                "age": "41",
+                "assistsPer100Possessions": "11.8",
+                "playerId": "jamesle01",
+                "pointsPer100Possessions": "34.2",
+                "position": "PF",
+                "season": "2025-2026",
+                "seasonType": "Regular",
+                "statType": "Per100",
+                "team": "LAL",
+                "totalReboundsPer100Possessions": "10.9"
+              }
+            ],
+            "responseCode": 200,
+            "totalItems": 1
+          }
+        ]
       },
       "GetPlayerPer36StatsResponseDto": {
         "properties": {
@@ -995,7 +1218,27 @@
           "body",
           "totalItems"
         ],
-        "title": "GetPlayerPer36StatsResponseDto"
+        "title": "GetPlayerPer36StatsResponseDto",
+        "examples": [
+          {
+            "body": [
+              {
+                "age": "41",
+                "assistsPer36Minutes": "8.7",
+                "playerId": "jamesle01",
+                "pointsPer36Minutes": "25.2",
+                "position": "PF",
+                "season": "2025-2026",
+                "seasonType": "Regular",
+                "statType": "Per36",
+                "team": "LAL",
+                "totalReboundsPer36Minutes": "8.0"
+              }
+            ],
+            "responseCode": 200,
+            "totalItems": 1
+          }
+        ]
       },
       "GetPlayerPerGameStatsResponseDto": {
         "properties": {
@@ -1021,7 +1264,31 @@
           "body",
           "totalItems"
         ],
-        "title": "GetPlayerPerGameStatsResponseDto"
+        "title": "GetPlayerPerGameStatsResponseDto",
+        "examples": [
+          {
+            "body": [
+              {
+                "age": "41",
+                "fieldGoalAttemptsPerGame": "17.2",
+                "fieldGoalPercentage": ".530",
+                "fieldGoalsMadePerGame": "9.1",
+                "gamesPlayed": "70",
+                "gamesStarted": "70",
+                "minutesPerGame": "34.9",
+                "playerId": "jamesle01",
+                "pointsPerGame": "24.4",
+                "position": "PF",
+                "season": "2025-2026",
+                "seasonType": "Regular",
+                "statType": "PerGame",
+                "team": "LAL"
+              }
+            ],
+            "responseCode": 200,
+            "totalItems": 1
+          }
+        ]
       },
       "GetPlayerTotalStatsResponseDto": {
         "properties": {
@@ -1047,7 +1314,30 @@
           "body",
           "totalItems"
         ],
-        "title": "GetPlayerTotalStatsResponseDto"
+        "title": "GetPlayerTotalStatsResponseDto",
+        "examples": [
+          {
+            "body": [
+              {
+                "age": "41",
+                "fieldGoalPercentage": ".529",
+                "fieldGoalsAttempted": "1204",
+                "fieldGoalsMade": "637",
+                "gamesPlayed": "70",
+                "minutesPlayed": "2443",
+                "playerId": "jamesle01",
+                "position": "PF",
+                "season": "2025-2026",
+                "seasonType": "Regular",
+                "statType": "Totals",
+                "team": "LAL",
+                "totalPoints": "1708"
+              }
+            ],
+            "responseCode": 200,
+            "totalItems": 1
+          }
+        ]
       },
       "GetTeamMetadataResponseDto": {
         "properties": {
@@ -1069,7 +1359,26 @@
           "body",
           "totalItems"
         ],
-        "title": "GetTeamMetadataResponseDto"
+        "title": "GetTeamMetadataResponseDto",
+        "examples": [
+          {
+            "body": {
+              "arena": "Crypto.com Arena",
+              "capacity": "18,997",
+              "coach": "JJ Redick",
+              "executive": "Rob Pelinka",
+              "lastGameInfo": "Won NBA Western Conference First Round",
+              "logoImage": "https://cdn.ssref.net/req/202505091/tlogo/bbr/LAL.png",
+              "nextGameInfo": null,
+              "ranking": "3rd in Western Conference",
+              "record": "50-32",
+              "seasonId": "2025-2026",
+              "teamId": "LAL"
+            },
+            "responseCode": 200,
+            "totalItems": 1
+          }
+        ]
       },
       "GetTeamRosterResponseDto": {
         "properties": {
@@ -1091,7 +1400,24 @@
           "body",
           "totalItems"
         ],
-        "title": "GetTeamRosterResponseDto"
+        "title": "GetTeamRosterResponseDto",
+        "examples": [
+          {
+            "body": {
+              "roster": [
+                {
+                  "number": "23",
+                  "player": "LeBron James",
+                  "position": "PF"
+                }
+              ],
+              "seasonId": "2025-2026",
+              "teamId": "LAL"
+            },
+            "responseCode": 200,
+            "totalItems": 1
+          }
+        ]
       },
       "GetTeamScheduleResponseDto": {
         "properties": {
@@ -1113,7 +1439,24 @@
           "body",
           "totalItems"
         ],
-        "title": "GetTeamScheduleResponseDto"
+        "title": "GetTeamScheduleResponseDto",
+        "examples": [
+          {
+            "body": {
+              "schedule": [
+                {
+                  "gameDate": "2025-10-21",
+                  "opponent": "GSW",
+                  "result": "W"
+                }
+              ],
+              "seasonId": "2025-2026",
+              "teamId": "LAL"
+            },
+            "responseCode": 200,
+            "totalItems": 1
+          }
+        ]
       },
       "HTTPValidationError": {
         "properties": {
@@ -1151,7 +1494,13 @@
           }
         },
         "type": "object",
-        "title": "ListPlayerGamesBySeasonRequestDto"
+        "title": "ListPlayerGamesBySeasonRequestDto",
+        "examples": [
+          {
+            "lastEvaluatedKey": null,
+            "pageSize": 25
+          }
+        ]
       },
       "ListPlayerGamesBySeasonResponseDto": {
         "properties": {
@@ -1189,7 +1538,32 @@
           "body",
           "totalItems"
         ],
-        "title": "ListPlayerGamesBySeasonResponseDto"
+        "title": "ListPlayerGamesBySeasonResponseDto",
+        "examples": [
+          {
+            "body": [
+              {
+                "age": "40-295",
+                "assists": "7",
+                "gameId": "202510210LAL",
+                "isPlayoffs": false,
+                "isStarter": true,
+                "minutesPlayed": "34:12",
+                "opponent": "GSW",
+                "playerId": "jamesle01",
+                "points": "25",
+                "result": "W (+7)",
+                "season": "2025-2026",
+                "statType": "Game",
+                "teamPlayed": "LAL",
+                "totalRebounds": "8"
+              }
+            ],
+            "lastEvaluatedKey": null,
+            "responseCode": 200,
+            "totalItems": 1
+          }
+        ]
       },
       "ListPlayerGamesRequestDto": {
         "properties": {
@@ -1214,7 +1588,13 @@
           }
         },
         "type": "object",
-        "title": "ListPlayerGamesRequestDto"
+        "title": "ListPlayerGamesRequestDto",
+        "examples": [
+          {
+            "lastEvaluatedKey": null,
+            "pageSize": 25
+          }
+        ]
       },
       "ListPlayerGamesResponseDto": {
         "properties": {
@@ -1252,7 +1632,32 @@
           "body",
           "totalItems"
         ],
-        "title": "ListPlayerGamesResponseDto"
+        "title": "ListPlayerGamesResponseDto",
+        "examples": [
+          {
+            "body": [
+              {
+                "age": "40-295",
+                "assists": "7",
+                "gameId": "202510210LAL",
+                "isPlayoffs": false,
+                "isStarter": true,
+                "minutesPlayed": "34:12",
+                "opponent": "GSW",
+                "playerId": "jamesle01",
+                "points": "25",
+                "result": "W (+7)",
+                "season": "2025-2026",
+                "statType": "Game",
+                "teamPlayed": "LAL",
+                "totalRebounds": "8"
+              }
+            ],
+            "lastEvaluatedKey": null,
+            "responseCode": 200,
+            "totalItems": 1
+          }
+        ]
       },
       "ListPlayersByFirstNameRequestDto": {
         "properties": {
@@ -1290,7 +1695,15 @@
         "required": [
           "firstname"
         ],
-        "title": "ListPlayersByFirstNameRequestDto"
+        "title": "ListPlayersByFirstNameRequestDto",
+        "examples": [
+          {
+            "firstname": "LeBron",
+            "lastEvaluatedKey": null,
+            "lastname": "James",
+            "pageSize": 25
+          }
+        ]
       },
       "ListPlayersByFirstNameResponseDto": {
         "properties": {
@@ -1333,7 +1746,33 @@
           "totalItems",
           "pageSize"
         ],
-        "title": "ListPlayersByFirstNameResponseDto"
+        "title": "ListPlayersByFirstNameResponseDto",
+        "examples": [
+          {
+            "body": [
+              {
+                "accolades": [],
+                "birthPlace": "Akron, Ohio",
+                "dateBorn": "December 30, 1984",
+                "draftInfo": "2003: Rd 1, Pk 1 (CLE)",
+                "firstName": "LeBron",
+                "headshotUrl": "https://www.basketball-reference.com/req/202106291/images/headshots/jamesle01.jpg",
+                "height": "6-9",
+                "hofInductionInfo": null,
+                "lastName": "James",
+                "nbaDebut": "October 29, 2003",
+                "playerId": "jamesle01",
+                "positions": "Small Forward, Power Forward, Point Guard",
+                "teams": [],
+                "weight": "250lb"
+              }
+            ],
+            "lastEvaluatedKey": null,
+            "pageSize": 25,
+            "responseCode": 200,
+            "totalItems": 1
+          }
+        ]
       },
       "ListPlayersByLastNameRequestDto": {
         "properties": {
@@ -1366,7 +1805,14 @@
         "required": [
           "prefix"
         ],
-        "title": "ListPlayersByLastNameRequestDto"
+        "title": "ListPlayersByLastNameRequestDto",
+        "examples": [
+          {
+            "lastEvaluatedKey": null,
+            "pageSize": 25,
+            "prefix": "James"
+          }
+        ]
       },
       "ListPlayersByLastNameResponseDto": {
         "properties": {
@@ -1409,7 +1855,33 @@
           "totalItems",
           "pageSize"
         ],
-        "title": "ListPlayersByLastNameResponseDto"
+        "title": "ListPlayersByLastNameResponseDto",
+        "examples": [
+          {
+            "body": [
+              {
+                "accolades": [],
+                "birthPlace": "Akron, Ohio",
+                "dateBorn": "December 30, 1984",
+                "draftInfo": "2003: Rd 1, Pk 1 (CLE)",
+                "firstName": "LeBron",
+                "headshotUrl": "https://www.basketball-reference.com/req/202106291/images/headshots/jamesle01.jpg",
+                "height": "6-9",
+                "hofInductionInfo": null,
+                "lastName": "James",
+                "nbaDebut": "October 29, 2003",
+                "playerId": "jamesle01",
+                "positions": "Small Forward, Power Forward, Point Guard",
+                "teams": [],
+                "weight": "250lb"
+              }
+            ],
+            "lastEvaluatedKey": null,
+            "pageSize": 25,
+            "responseCode": 200,
+            "totalItems": 1
+          }
+        ]
       },
       "ListPlayersRequestDto": {
         "properties": {
@@ -1434,7 +1906,13 @@
           }
         },
         "type": "object",
-        "title": "ListPlayersRequestDto"
+        "title": "ListPlayersRequestDto",
+        "examples": [
+          {
+            "lastEvaluatedKey": null,
+            "pageSize": 25
+          }
+        ]
       },
       "ListPlayersResponseDto": {
         "properties": {
@@ -1472,7 +1950,32 @@
           "body",
           "totalItems"
         ],
-        "title": "ListPlayersResponseDto"
+        "title": "ListPlayersResponseDto",
+        "examples": [
+          {
+            "body": [
+              {
+                "accolades": [],
+                "birthPlace": "Akron, Ohio",
+                "dateBorn": "December 30, 1984",
+                "draftInfo": "2003: Rd 1, Pk 1 (CLE)",
+                "firstName": "LeBron",
+                "headshotUrl": "https://www.basketball-reference.com/req/202106291/images/headshots/jamesle01.jpg",
+                "height": "6-9",
+                "hofInductionInfo": null,
+                "lastName": "James",
+                "nbaDebut": "October 29, 2003",
+                "playerId": "jamesle01",
+                "positions": "Small Forward, Power Forward, Point Guard",
+                "teams": [],
+                "weight": "250lb"
+              }
+            ],
+            "lastEvaluatedKey": null,
+            "responseCode": 200,
+            "totalItems": 1
+          }
+        ]
       },
       "PlayerAdvancedDto": {
         "properties": {
@@ -3909,5 +4412,19 @@
         "title": "ResponseValidationError"
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "Player Discovery"
+    },
+    {
+      "name": "Player Career Stats"
+    },
+    {
+      "name": "Team Information"
+    },
+    {
+      "name": "Player Game Stats"
+    }
+  ]
 }
