@@ -971,6 +971,48 @@
         }
       }
     },
+    "/players/full-text-search": {
+      "post": {
+        "tags": [
+          "Player Discovery"
+        ],
+        "summary": "POST /players/full-text-search",
+        "description": "Search player metadata records by name using the Meilisearch full-text index.",
+        "operationId": "searchPlayerMetadata",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchPlayerMetadataRequestDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchPlayerMetadataResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/players/lastname": {
       "post": {
         "tags": [
@@ -4203,6 +4245,90 @@
           "seasonType"
         ],
         "title": "PlayerTotalsDto"
+      },
+      "SearchPlayerMetadataRequestDto": {
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Query"
+          },
+          "pageSize": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Pagesize",
+            "default": 10
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Offset",
+            "default": 0
+          }
+        },
+        "type": "object",
+        "required": [
+          "query"
+        ],
+        "title": "SearchPlayerMetadataRequestDto",
+        "examples": [
+          {
+            "offset": 0,
+            "pageSize": 10,
+            "query": "anthony edwards"
+          }
+        ]
+      },
+      "SearchPlayerMetadataResponseDto": {
+        "properties": {
+          "body": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerMetadataDto"
+            },
+            "type": "array",
+            "title": "Body"
+          },
+          "totalItems": {
+            "type": "integer",
+            "title": "Totalitems"
+          },
+          "responseCode": {
+            "type": "integer",
+            "title": "Responsecode",
+            "default": 200
+          }
+        },
+        "type": "object",
+        "required": [
+          "body",
+          "totalItems"
+        ],
+        "title": "SearchPlayerMetadataResponseDto",
+        "examples": [
+          {
+            "body": [
+              {
+                "accolades": [],
+                "birthPlace": "Akron, Ohio",
+                "dateBorn": "December 30, 1984",
+                "draftInfo": "2003: Rd 1, Pk 1 (CLE)",
+                "firstName": "LeBron",
+                "headshotUrl": "https://www.basketball-reference.com/req/202106291/images/headshots/jamesle01.jpg",
+                "height": "6-9",
+                "hofInductionInfo": null,
+                "lastName": "James",
+                "nbaDebut": "October 29, 2003",
+                "playerId": "jamesle01",
+                "positions": "Small Forward, Power Forward, Point Guard",
+                "teams": [],
+                "weight": "250lb"
+              }
+            ],
+            "responseCode": 200,
+            "totalItems": 1
+          }
+        ]
       },
       "TeamMetadataDto": {
         "properties": {
