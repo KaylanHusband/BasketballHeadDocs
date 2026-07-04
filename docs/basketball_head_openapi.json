@@ -57,11 +57,62 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetPlayerByPlayerIdResponseDto"
+                },
+                "example": {
+                  "body": {
+                    "accolades": [],
+                    "birthPlace": "Akron, Ohio",
+                    "dateBorn": "December 30, 1984",
+                    "draftInfo": "2003: Rd 1, Pk 1 (CLE)",
+                    "firstName": "LeBron",
+                    "headshotUrl": "https://www.basketball-reference.com/req/202106291/images/headshots/jamesle01.jpg",
+                    "height": "6-9",
+                    "hofInductionInfo": null,
+                    "lastName": "James",
+                    "nbaDebut": "October 29, 2003",
+                    "playerId": "jamesle01",
+                    "positions": "Small Forward, Power Forward, Point Guard",
+                    "teams": [],
+                    "weight": "250lb"
+                  },
+                  "responseCode": 200,
+                  "totalItems": 1
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Successful response",
+                    "value": {
+                      "body": {
+                        "accolades": [],
+                        "birthPlace": "Akron, Ohio",
+                        "dateBorn": "December 30, 1984",
+                        "draftInfo": "2003: Rd 1, Pk 1 (CLE)",
+                        "firstName": "LeBron",
+                        "headshotUrl": "https://www.basketball-reference.com/req/202106291/images/headshots/jamesle01.jpg",
+                        "height": "6-9",
+                        "hofInductionInfo": null,
+                        "lastName": "James",
+                        "nbaDebut": "October 29, 2003",
+                        "playerId": "jamesle01",
+                        "positions": "Small Forward, Power Forward, Point Guard",
+                        "teams": [],
+                        "weight": "250lb"
+                      },
+                      "responseCode": 200,
+                      "totalItems": 1
+                    }
+                  }
                 }
               }
             }
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl --request GET 'https://basketball-head.p.rapidapi.com/players/jamesle01' \\\n  --header 'Content-Type: application/json' \\\n  --header 'x-rapidapi-host: basketball-head.p.rapidapi.com' \\\n  --header 'x-rapidapi-key: YOUR_RAPIDAPI_KEY'"
+          }
+        ]
       }
     },
     "/players/{player_id}/stats/PerGame": {
@@ -148,11 +199,66 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetPlayerPerGameStatsResponseDto"
+                },
+                "example": {
+                  "body": [
+                    {
+                      "age": "41",
+                      "fieldGoalAttemptsPerGame": "17.2",
+                      "fieldGoalPercentage": ".530",
+                      "fieldGoalsMadePerGame": "9.1",
+                      "gamesPlayed": "70",
+                      "gamesStarted": "70",
+                      "minutesPerGame": "34.9",
+                      "playerId": "jamesle01",
+                      "pointsPerGame": "24.4",
+                      "position": "PF",
+                      "season": "2025-2026",
+                      "seasonType": "Regular",
+                      "statType": "PerGame",
+                      "team": "LAL"
+                    }
+                  ],
+                  "responseCode": 200,
+                  "totalItems": 1
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Successful response",
+                    "value": {
+                      "body": [
+                        {
+                          "age": "41",
+                          "fieldGoalAttemptsPerGame": "17.2",
+                          "fieldGoalPercentage": ".530",
+                          "fieldGoalsMadePerGame": "9.1",
+                          "gamesPlayed": "70",
+                          "gamesStarted": "70",
+                          "minutesPerGame": "34.9",
+                          "playerId": "jamesle01",
+                          "pointsPerGame": "24.4",
+                          "position": "PF",
+                          "season": "2025-2026",
+                          "seasonType": "Regular",
+                          "statType": "PerGame",
+                          "team": "LAL"
+                        }
+                      ],
+                      "responseCode": 200,
+                      "totalItems": 1
+                    }
+                  }
                 }
               }
             }
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl --request GET 'https://basketball-head.p.rapidapi.com/players/jamesle01/stats/PerGame?seasonType=Regular&seasonId=2025-2026' \\\n  --header 'Content-Type: application/json' \\\n  --header 'x-rapidapi-host: basketball-head.p.rapidapi.com' \\\n  --header 'x-rapidapi-key: YOUR_RAPIDAPI_KEY'"
+          }
+        ]
       }
     },
     "/players/{player_id}/stats/Totals": {
@@ -239,11 +345,64 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetPlayerTotalStatsResponseDto"
+                },
+                "example": {
+                  "body": [
+                    {
+                      "age": "41",
+                      "fieldGoalPercentage": ".529",
+                      "fieldGoalsAttempted": "1204",
+                      "fieldGoalsMade": "637",
+                      "gamesPlayed": "70",
+                      "minutesPlayed": "2443",
+                      "playerId": "jamesle01",
+                      "position": "PF",
+                      "season": "2025-2026",
+                      "seasonType": "Regular",
+                      "statType": "Totals",
+                      "team": "LAL",
+                      "totalPoints": "1708"
+                    }
+                  ],
+                  "responseCode": 200,
+                  "totalItems": 1
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Successful response",
+                    "value": {
+                      "body": [
+                        {
+                          "age": "41",
+                          "fieldGoalPercentage": ".529",
+                          "fieldGoalsAttempted": "1204",
+                          "fieldGoalsMade": "637",
+                          "gamesPlayed": "70",
+                          "minutesPlayed": "2443",
+                          "playerId": "jamesle01",
+                          "position": "PF",
+                          "season": "2025-2026",
+                          "seasonType": "Regular",
+                          "statType": "Totals",
+                          "team": "LAL",
+                          "totalPoints": "1708"
+                        }
+                      ],
+                      "responseCode": 200,
+                      "totalItems": 1
+                    }
+                  }
                 }
               }
             }
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl --request GET 'https://basketball-head.p.rapidapi.com/players/jamesle01/stats/Totals?seasonType=Regular&seasonId=2025-2026' \\\n  --header 'Content-Type: application/json' \\\n  --header 'x-rapidapi-host: basketball-head.p.rapidapi.com' \\\n  --header 'x-rapidapi-key: YOUR_RAPIDAPI_KEY'"
+          }
+        ]
       }
     },
     "/players/{player_id}/stats/Per100": {
@@ -330,11 +489,58 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetPlayerPer100StatsResponseDto"
+                },
+                "example": {
+                  "body": [
+                    {
+                      "age": "41",
+                      "assistsPer100Possessions": "11.8",
+                      "playerId": "jamesle01",
+                      "pointsPer100Possessions": "34.2",
+                      "position": "PF",
+                      "season": "2025-2026",
+                      "seasonType": "Regular",
+                      "statType": "Per100",
+                      "team": "LAL",
+                      "totalReboundsPer100Possessions": "10.9"
+                    }
+                  ],
+                  "responseCode": 200,
+                  "totalItems": 1
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Successful response",
+                    "value": {
+                      "body": [
+                        {
+                          "age": "41",
+                          "assistsPer100Possessions": "11.8",
+                          "playerId": "jamesle01",
+                          "pointsPer100Possessions": "34.2",
+                          "position": "PF",
+                          "season": "2025-2026",
+                          "seasonType": "Regular",
+                          "statType": "Per100",
+                          "team": "LAL",
+                          "totalReboundsPer100Possessions": "10.9"
+                        }
+                      ],
+                      "responseCode": 200,
+                      "totalItems": 1
+                    }
+                  }
                 }
               }
             }
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl --request GET 'https://basketball-head.p.rapidapi.com/players/jamesle01/stats/Per100?seasonType=Regular&seasonId=2025-2026' \\\n  --header 'Content-Type: application/json' \\\n  --header 'x-rapidapi-host: basketball-head.p.rapidapi.com' \\\n  --header 'x-rapidapi-key: YOUR_RAPIDAPI_KEY'"
+          }
+        ]
       }
     },
     "/players/{player_id}/stats/Per36": {
@@ -421,11 +627,58 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetPlayerPer36StatsResponseDto"
+                },
+                "example": {
+                  "body": [
+                    {
+                      "age": "41",
+                      "assistsPer36Minutes": "8.7",
+                      "playerId": "jamesle01",
+                      "pointsPer36Minutes": "25.2",
+                      "position": "PF",
+                      "season": "2025-2026",
+                      "seasonType": "Regular",
+                      "statType": "Per36",
+                      "team": "LAL",
+                      "totalReboundsPer36Minutes": "8.0"
+                    }
+                  ],
+                  "responseCode": 200,
+                  "totalItems": 1
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Successful response",
+                    "value": {
+                      "body": [
+                        {
+                          "age": "41",
+                          "assistsPer36Minutes": "8.7",
+                          "playerId": "jamesle01",
+                          "pointsPer36Minutes": "25.2",
+                          "position": "PF",
+                          "season": "2025-2026",
+                          "seasonType": "Regular",
+                          "statType": "Per36",
+                          "team": "LAL",
+                          "totalReboundsPer36Minutes": "8.0"
+                        }
+                      ],
+                      "responseCode": 200,
+                      "totalItems": 1
+                    }
+                  }
                 }
               }
             }
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl --request GET 'https://basketball-head.p.rapidapi.com/players/jamesle01/stats/Per36?seasonType=Regular&seasonId=2025-2026' \\\n  --header 'Content-Type: application/json' \\\n  --header 'x-rapidapi-host: basketball-head.p.rapidapi.com' \\\n  --header 'x-rapidapi-key: YOUR_RAPIDAPI_KEY'"
+          }
+        ]
       }
     },
     "/players/{player_id}/stats/Advanced": {
@@ -512,11 +765,60 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetPlayerAdvancedStatsResponseDto"
+                },
+                "example": {
+                  "body": [
+                    {
+                      "age": "41",
+                      "playerEfficiencyRating": "22.1",
+                      "playerId": "jamesle01",
+                      "position": "PF",
+                      "season": "2025-2026",
+                      "seasonType": "Regular",
+                      "statType": "Advanced",
+                      "team": "LAL",
+                      "trueShootingPercentage": ".620",
+                      "usagePercentage": "28.4",
+                      "winShares": "8.2"
+                    }
+                  ],
+                  "responseCode": 200,
+                  "totalItems": 1
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Successful response",
+                    "value": {
+                      "body": [
+                        {
+                          "age": "41",
+                          "playerEfficiencyRating": "22.1",
+                          "playerId": "jamesle01",
+                          "position": "PF",
+                          "season": "2025-2026",
+                          "seasonType": "Regular",
+                          "statType": "Advanced",
+                          "team": "LAL",
+                          "trueShootingPercentage": ".620",
+                          "usagePercentage": "28.4",
+                          "winShares": "8.2"
+                        }
+                      ],
+                      "responseCode": 200,
+                      "totalItems": 1
+                    }
+                  }
                 }
               }
             }
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl --request GET 'https://basketball-head.p.rapidapi.com/players/jamesle01/stats/Advanced?seasonType=Regular&seasonId=2025-2026' \\\n  --header 'Content-Type: application/json' \\\n  --header 'x-rapidapi-host: basketball-head.p.rapidapi.com' \\\n  --header 'x-rapidapi-key: YOUR_RAPIDAPI_KEY'"
+          }
+        ]
       }
     },
     "/players/{player_id}/stats/Salary": {
@@ -560,11 +862,48 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetPlayerCareerSalariesResponseDto"
+                },
+                "example": {
+                  "body": [
+                    {
+                      "playerId": "jamesle01",
+                      "salary": "$52,627,153",
+                      "season": "2025-2026",
+                      "statType": "Salary",
+                      "team": "LAL"
+                    }
+                  ],
+                  "responseCode": 200,
+                  "totalItems": 1
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Successful response",
+                    "value": {
+                      "body": [
+                        {
+                          "playerId": "jamesle01",
+                          "salary": "$52,627,153",
+                          "season": "2025-2026",
+                          "statType": "Salary",
+                          "team": "LAL"
+                        }
+                      ],
+                      "responseCode": 200,
+                      "totalItems": 1
+                    }
+                  }
                 }
               }
             }
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl --request GET 'https://basketball-head.p.rapidapi.com/players/jamesle01/stats/Salary' \\\n  --header 'Content-Type: application/json' \\\n  --header 'x-rapidapi-host: basketball-head.p.rapidapi.com' \\\n  --header 'x-rapidapi-key: YOUR_RAPIDAPI_KEY'"
+          }
+        ]
       }
     },
     "/players/{player_id}/games": {
@@ -573,7 +912,7 @@
           "Player Game Stats"
         ],
         "summary": "POST /players/{player_id}/games",
-        "description": "List player game log rows for all available seasons with pagination support.",
+        "description": "List player game log rows for all available seasons with pagination support.\n\nUsage: player_id is a Basketball Reference player ID such as jamesle01. Omit lastEvaluatedKey on the first request.",
         "operationId": "listPlayerGames",
         "parameters": [
           {
@@ -596,6 +935,33 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ListPlayerGamesRequestDto"
+              },
+              "examples": {
+                "firstPage": {
+                  "summary": "First page",
+                  "description": "Use this body for the first request. Do not send lastEvaluatedKey until a response returns one.",
+                  "value": {
+                    "pageSize": 25
+                  }
+                },
+                "nextPage": {
+                  "summary": "Next page",
+                  "description": "Pass the exact lastEvaluatedKey object returned by the previous response.",
+                  "value": {
+                    "pageSize": 25,
+                    "lastEvaluatedKey": {
+                      "PK": {
+                        "S": "Player"
+                      },
+                      "SK": {
+                        "S": "jamesle01:Game:2025-2026:202510210LAL"
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "pageSize": 25
               }
             }
           },
@@ -618,11 +984,68 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ListPlayerGamesResponseDto"
+                },
+                "example": {
+                  "body": [
+                    {
+                      "age": "40-295",
+                      "assists": "7",
+                      "gameId": "202510210LAL",
+                      "isPlayoffs": false,
+                      "isStarter": true,
+                      "minutesPlayed": "34:12",
+                      "opponent": "GSW",
+                      "playerId": "jamesle01",
+                      "points": "25",
+                      "result": "W (+7)",
+                      "season": "2025-2026",
+                      "statType": "Game",
+                      "teamPlayed": "LAL",
+                      "totalRebounds": "8"
+                    }
+                  ],
+                  "lastEvaluatedKey": null,
+                  "responseCode": 200,
+                  "totalItems": 1
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Successful response",
+                    "value": {
+                      "body": [
+                        {
+                          "age": "40-295",
+                          "assists": "7",
+                          "gameId": "202510210LAL",
+                          "isPlayoffs": false,
+                          "isStarter": true,
+                          "minutesPlayed": "34:12",
+                          "opponent": "GSW",
+                          "playerId": "jamesle01",
+                          "points": "25",
+                          "result": "W (+7)",
+                          "season": "2025-2026",
+                          "statType": "Game",
+                          "teamPlayed": "LAL",
+                          "totalRebounds": "8"
+                        }
+                      ],
+                      "lastEvaluatedKey": null,
+                      "responseCode": 200,
+                      "totalItems": 1
+                    }
+                  }
                 }
               }
             }
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl --request POST 'https://basketball-head.p.rapidapi.com/players/jamesle01/games' \\\n  --header 'Content-Type: application/json' \\\n  --header 'x-rapidapi-host: basketball-head.p.rapidapi.com' \\\n  --header 'x-rapidapi-key: YOUR_RAPIDAPI_KEY' \\\n  --data '{\"pageSize\":25}'"
+          }
+        ]
       }
     },
     "/players/{player_id}/games/{season_id}": {
@@ -631,7 +1054,7 @@
           "Player Game Stats"
         ],
         "summary": "POST /players/{player_id}/games/{season_id}",
-        "description": "List player game log rows for one NBA season with pagination support. The season_id path value is the ending season year, for example 2026 for the 2025-2026 season.",
+        "description": "List player game log rows for one NBA season with pagination support. The season_id path value is the ending season year, for example 2026 for the 2025-2026 season.\n\nUsage: season_id is the ending season year, such as 2026 for the 2025-2026 NBA season.",
         "operationId": "listPlayerGamesBySeason",
         "parameters": [
           {
@@ -669,6 +1092,33 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ListPlayerGamesBySeasonRequestDto"
+              },
+              "examples": {
+                "firstPage": {
+                  "summary": "First page",
+                  "description": "Use this body for the first request. Do not send lastEvaluatedKey until a response returns one.",
+                  "value": {
+                    "pageSize": 25
+                  }
+                },
+                "nextPage": {
+                  "summary": "Next page",
+                  "description": "Pass the exact lastEvaluatedKey object returned by the previous response.",
+                  "value": {
+                    "pageSize": 25,
+                    "lastEvaluatedKey": {
+                      "PK": {
+                        "S": "Player"
+                      },
+                      "SK": {
+                        "S": "jamesle01:Game:2025-2026:202510210LAL"
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "pageSize": 25
               }
             }
           },
@@ -691,11 +1141,68 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ListPlayerGamesBySeasonResponseDto"
+                },
+                "example": {
+                  "body": [
+                    {
+                      "age": "40-295",
+                      "assists": "7",
+                      "gameId": "202510210LAL",
+                      "isPlayoffs": false,
+                      "isStarter": true,
+                      "minutesPlayed": "34:12",
+                      "opponent": "GSW",
+                      "playerId": "jamesle01",
+                      "points": "25",
+                      "result": "W (+7)",
+                      "season": "2025-2026",
+                      "statType": "Game",
+                      "teamPlayed": "LAL",
+                      "totalRebounds": "8"
+                    }
+                  ],
+                  "lastEvaluatedKey": null,
+                  "responseCode": 200,
+                  "totalItems": 1
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Successful response",
+                    "value": {
+                      "body": [
+                        {
+                          "age": "40-295",
+                          "assists": "7",
+                          "gameId": "202510210LAL",
+                          "isPlayoffs": false,
+                          "isStarter": true,
+                          "minutesPlayed": "34:12",
+                          "opponent": "GSW",
+                          "playerId": "jamesle01",
+                          "points": "25",
+                          "result": "W (+7)",
+                          "season": "2025-2026",
+                          "statType": "Game",
+                          "teamPlayed": "LAL",
+                          "totalRebounds": "8"
+                        }
+                      ],
+                      "lastEvaluatedKey": null,
+                      "responseCode": 200,
+                      "totalItems": 1
+                    }
+                  }
                 }
               }
             }
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl --request POST 'https://basketball-head.p.rapidapi.com/players/jamesle01/games/2026' \\\n  --header 'Content-Type: application/json' \\\n  --header 'x-rapidapi-host: basketball-head.p.rapidapi.com' \\\n  --header 'x-rapidapi-key: YOUR_RAPIDAPI_KEY' \\\n  --data '{\"pageSize\":25}'"
+          }
+        ]
       }
     },
     "/teams/{team_id}/metadata/{season_id}": {
@@ -754,11 +1261,56 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetTeamMetadataResponseDto"
+                },
+                "example": {
+                  "body": {
+                    "arena": "Crypto.com Arena",
+                    "capacity": "18,997",
+                    "coach": "JJ Redick",
+                    "executive": "Rob Pelinka",
+                    "lastGameInfo": "Won NBA Western Conference First Round",
+                    "logoImage": "https://cdn.ssref.net/req/202505091/tlogo/bbr/LAL.png",
+                    "nextGameInfo": null,
+                    "ranking": "3rd in Western Conference",
+                    "record": "50-32",
+                    "seasonId": "2025-2026",
+                    "teamId": "LAL"
+                  },
+                  "responseCode": 200,
+                  "totalItems": 1
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Successful response",
+                    "value": {
+                      "body": {
+                        "arena": "Crypto.com Arena",
+                        "capacity": "18,997",
+                        "coach": "JJ Redick",
+                        "executive": "Rob Pelinka",
+                        "lastGameInfo": "Won NBA Western Conference First Round",
+                        "logoImage": "https://cdn.ssref.net/req/202505091/tlogo/bbr/LAL.png",
+                        "nextGameInfo": null,
+                        "ranking": "3rd in Western Conference",
+                        "record": "50-32",
+                        "seasonId": "2025-2026",
+                        "teamId": "LAL"
+                      },
+                      "responseCode": 200,
+                      "totalItems": 1
+                    }
+                  }
                 }
               }
             }
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl --request GET 'https://basketball-head.p.rapidapi.com/teams/LAL/metadata/2025-2026' \\\n  --header 'Content-Type: application/json' \\\n  --header 'x-rapidapi-host: basketball-head.p.rapidapi.com' \\\n  --header 'x-rapidapi-key: YOUR_RAPIDAPI_KEY'"
+          }
+        ]
       }
     },
     "/teams/{team_id}/roster/{season_id}": {
@@ -817,11 +1369,52 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetTeamRosterResponseDto"
+                },
+                "example": {
+                  "body": {
+                    "roster": [
+                      {
+                        "number": "23",
+                        "player": "LeBron James",
+                        "position": "PF"
+                      }
+                    ],
+                    "seasonId": "2025-2026",
+                    "teamId": "LAL"
+                  },
+                  "responseCode": 200,
+                  "totalItems": 1
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Successful response",
+                    "value": {
+                      "body": {
+                        "roster": [
+                          {
+                            "number": "23",
+                            "player": "LeBron James",
+                            "position": "PF"
+                          }
+                        ],
+                        "seasonId": "2025-2026",
+                        "teamId": "LAL"
+                      },
+                      "responseCode": 200,
+                      "totalItems": 1
+                    }
+                  }
                 }
               }
             }
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl --request GET 'https://basketball-head.p.rapidapi.com/teams/LAL/roster/2025-2026' \\\n  --header 'Content-Type: application/json' \\\n  --header 'x-rapidapi-host: basketball-head.p.rapidapi.com' \\\n  --header 'x-rapidapi-key: YOUR_RAPIDAPI_KEY'"
+          }
+        ]
       }
     },
     "/teams/{team_id}/schedule/{season_id}": {
@@ -880,11 +1473,52 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetTeamScheduleResponseDto"
+                },
+                "example": {
+                  "body": {
+                    "schedule": [
+                      {
+                        "gameDate": "2025-10-21",
+                        "opponent": "GSW",
+                        "result": "W"
+                      }
+                    ],
+                    "seasonId": "2025-2026",
+                    "teamId": "LAL"
+                  },
+                  "responseCode": 200,
+                  "totalItems": 1
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Successful response",
+                    "value": {
+                      "body": {
+                        "schedule": [
+                          {
+                            "gameDate": "2025-10-21",
+                            "opponent": "GSW",
+                            "result": "W"
+                          }
+                        ],
+                        "seasonId": "2025-2026",
+                        "teamId": "LAL"
+                      },
+                      "responseCode": 200,
+                      "totalItems": 1
+                    }
+                  }
                 }
               }
             }
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl --request GET 'https://basketball-head.p.rapidapi.com/teams/LAL/schedule/2025-2026' \\\n  --header 'Content-Type: application/json' \\\n  --header 'x-rapidapi-host: basketball-head.p.rapidapi.com' \\\n  --header 'x-rapidapi-key: YOUR_RAPIDAPI_KEY'"
+          }
+        ]
       }
     },
     "/players": {
@@ -893,13 +1527,40 @@
           "Player Discovery"
         ],
         "summary": "POST /players",
-        "description": "List player metadata records with pagination support. Use this endpoint for broad player discovery.",
+        "description": "List player metadata records with pagination support. Use this endpoint for broad player discovery.\n\nUsage: send pageSize between 1 and 100. Omit lastEvaluatedKey on the first request.",
         "operationId": "listPlayers",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ListPlayersRequestDto"
+              },
+              "examples": {
+                "firstPage": {
+                  "summary": "First page",
+                  "description": "Use this body for the first request. Do not send lastEvaluatedKey until a response returns one.",
+                  "value": {
+                    "pageSize": 25
+                  }
+                },
+                "nextPage": {
+                  "summary": "Next page",
+                  "description": "Pass the exact lastEvaluatedKey object returned by the previous response.",
+                  "value": {
+                    "pageSize": 25,
+                    "lastEvaluatedKey": {
+                      "PK": {
+                        "S": "Player"
+                      },
+                      "SK": {
+                        "S": "jamesle01:Game:2025-2026:202510210LAL"
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "pageSize": 25
               }
             }
           },
@@ -922,11 +1583,68 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ListPlayersResponseDto"
+                },
+                "example": {
+                  "body": [
+                    {
+                      "accolades": [],
+                      "birthPlace": "Akron, Ohio",
+                      "dateBorn": "December 30, 1984",
+                      "draftInfo": "2003: Rd 1, Pk 1 (CLE)",
+                      "firstName": "LeBron",
+                      "headshotUrl": "https://www.basketball-reference.com/req/202106291/images/headshots/jamesle01.jpg",
+                      "height": "6-9",
+                      "hofInductionInfo": null,
+                      "lastName": "James",
+                      "nbaDebut": "October 29, 2003",
+                      "playerId": "jamesle01",
+                      "positions": "Small Forward, Power Forward, Point Guard",
+                      "teams": [],
+                      "weight": "250lb"
+                    }
+                  ],
+                  "lastEvaluatedKey": null,
+                  "responseCode": 200,
+                  "totalItems": 1
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Successful response",
+                    "value": {
+                      "body": [
+                        {
+                          "accolades": [],
+                          "birthPlace": "Akron, Ohio",
+                          "dateBorn": "December 30, 1984",
+                          "draftInfo": "2003: Rd 1, Pk 1 (CLE)",
+                          "firstName": "LeBron",
+                          "headshotUrl": "https://www.basketball-reference.com/req/202106291/images/headshots/jamesle01.jpg",
+                          "height": "6-9",
+                          "hofInductionInfo": null,
+                          "lastName": "James",
+                          "nbaDebut": "October 29, 2003",
+                          "playerId": "jamesle01",
+                          "positions": "Small Forward, Power Forward, Point Guard",
+                          "teams": [],
+                          "weight": "250lb"
+                        }
+                      ],
+                      "lastEvaluatedKey": null,
+                      "responseCode": 200,
+                      "totalItems": 1
+                    }
+                  }
                 }
               }
             }
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl --request POST 'https://basketball-head.p.rapidapi.com/players' \\\n  --header 'Content-Type: application/json' \\\n  --header 'x-rapidapi-host: basketball-head.p.rapidapi.com' \\\n  --header 'x-rapidapi-key: YOUR_RAPIDAPI_KEY' \\\n  --data '{\"pageSize\":25}'"
+          }
+        ]
       }
     },
     "/players/search": {
@@ -935,13 +1653,35 @@
           "Player Discovery"
         ],
         "summary": "POST /players/search",
-        "description": "List player metadata records matching a lowercase request body field named firstname and optional lastname prefix.",
+        "description": "List player metadata records matching a lowercase request body field named firstname and optional lastname prefix.\n\nUsage: firstname is required. lastname is optional and narrows the prefix lookup.",
         "operationId": "listPlayersByFirstName",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ListPlayersByFirstNameRequestDto"
+              },
+              "examples": {
+                "byFullName": {
+                  "summary": "Search by first and last name",
+                  "value": {
+                    "firstname": "LeBron",
+                    "lastname": "James",
+                    "pageSize": 25
+                  }
+                },
+                "byFirstNameOnly": {
+                  "summary": "Search by first name only",
+                  "value": {
+                    "firstname": "Anthony",
+                    "pageSize": 25
+                  }
+                }
+              },
+              "example": {
+                "firstname": "LeBron",
+                "lastname": "James",
+                "pageSize": 25
               }
             }
           },
@@ -964,11 +1704,70 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ListPlayersByFirstNameResponseDto"
+                },
+                "example": {
+                  "body": [
+                    {
+                      "accolades": [],
+                      "birthPlace": "Akron, Ohio",
+                      "dateBorn": "December 30, 1984",
+                      "draftInfo": "2003: Rd 1, Pk 1 (CLE)",
+                      "firstName": "LeBron",
+                      "headshotUrl": "https://www.basketball-reference.com/req/202106291/images/headshots/jamesle01.jpg",
+                      "height": "6-9",
+                      "hofInductionInfo": null,
+                      "lastName": "James",
+                      "nbaDebut": "October 29, 2003",
+                      "playerId": "jamesle01",
+                      "positions": "Small Forward, Power Forward, Point Guard",
+                      "teams": [],
+                      "weight": "250lb"
+                    }
+                  ],
+                  "lastEvaluatedKey": null,
+                  "pageSize": 25,
+                  "responseCode": 200,
+                  "totalItems": 1
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Successful response",
+                    "value": {
+                      "body": [
+                        {
+                          "accolades": [],
+                          "birthPlace": "Akron, Ohio",
+                          "dateBorn": "December 30, 1984",
+                          "draftInfo": "2003: Rd 1, Pk 1 (CLE)",
+                          "firstName": "LeBron",
+                          "headshotUrl": "https://www.basketball-reference.com/req/202106291/images/headshots/jamesle01.jpg",
+                          "height": "6-9",
+                          "hofInductionInfo": null,
+                          "lastName": "James",
+                          "nbaDebut": "October 29, 2003",
+                          "playerId": "jamesle01",
+                          "positions": "Small Forward, Power Forward, Point Guard",
+                          "teams": [],
+                          "weight": "250lb"
+                        }
+                      ],
+                      "lastEvaluatedKey": null,
+                      "pageSize": 25,
+                      "responseCode": 200,
+                      "totalItems": 1
+                    }
+                  }
                 }
               }
             }
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl --request POST 'https://basketball-head.p.rapidapi.com/players/search' \\\n  --header 'Content-Type: application/json' \\\n  --header 'x-rapidapi-host: basketball-head.p.rapidapi.com' \\\n  --header 'x-rapidapi-key: YOUR_RAPIDAPI_KEY' \\\n  --data '{\"firstname\":\"LeBron\",\"lastname\":\"James\",\"pageSize\":25}'"
+          }
+        ]
       }
     },
     "/players/full-text-search": {
@@ -977,13 +1776,36 @@
           "Player Discovery"
         ],
         "summary": "POST /players/full-text-search",
-        "description": "Search player metadata records by name using the Meilisearch full-text index.",
+        "description": "Search player metadata records by name using the Meilisearch full-text index.\n\nUsage: query is a full-text player name search. Use offset with pageSize for search pagination.",
         "operationId": "searchPlayerMetadata",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SearchPlayerMetadataRequestDto"
+              },
+              "examples": {
+                "fullName": {
+                  "summary": "Full-text name search",
+                  "value": {
+                    "query": "lebron james",
+                    "pageSize": 10,
+                    "offset": 0
+                  }
+                },
+                "partialName": {
+                  "summary": "Partial or prefix search",
+                  "value": {
+                    "query": "anthony ed",
+                    "pageSize": 10,
+                    "offset": 0
+                  }
+                }
+              },
+              "example": {
+                "query": "lebron james",
+                "pageSize": 10,
+                "offset": 0
               }
             }
           },
@@ -1006,11 +1828,66 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SearchPlayerMetadataResponseDto"
+                },
+                "example": {
+                  "body": [
+                    {
+                      "accolades": [],
+                      "birthPlace": "Akron, Ohio",
+                      "dateBorn": "December 30, 1984",
+                      "draftInfo": "2003: Rd 1, Pk 1 (CLE)",
+                      "firstName": "LeBron",
+                      "headshotUrl": "https://www.basketball-reference.com/req/202106291/images/headshots/jamesle01.jpg",
+                      "height": "6-9",
+                      "hofInductionInfo": null,
+                      "lastName": "James",
+                      "nbaDebut": "October 29, 2003",
+                      "playerId": "jamesle01",
+                      "positions": "Small Forward, Power Forward, Point Guard",
+                      "teams": [],
+                      "weight": "250lb"
+                    }
+                  ],
+                  "responseCode": 200,
+                  "totalItems": 1
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Successful response",
+                    "value": {
+                      "body": [
+                        {
+                          "accolades": [],
+                          "birthPlace": "Akron, Ohio",
+                          "dateBorn": "December 30, 1984",
+                          "draftInfo": "2003: Rd 1, Pk 1 (CLE)",
+                          "firstName": "LeBron",
+                          "headshotUrl": "https://www.basketball-reference.com/req/202106291/images/headshots/jamesle01.jpg",
+                          "height": "6-9",
+                          "hofInductionInfo": null,
+                          "lastName": "James",
+                          "nbaDebut": "October 29, 2003",
+                          "playerId": "jamesle01",
+                          "positions": "Small Forward, Power Forward, Point Guard",
+                          "teams": [],
+                          "weight": "250lb"
+                        }
+                      ],
+                      "responseCode": 200,
+                      "totalItems": 1
+                    }
+                  }
                 }
               }
             }
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl --request POST 'https://basketball-head.p.rapidapi.com/players/full-text-search' \\\n  --header 'Content-Type: application/json' \\\n  --header 'x-rapidapi-host: basketball-head.p.rapidapi.com' \\\n  --header 'x-rapidapi-key: YOUR_RAPIDAPI_KEY' \\\n  --data '{\"query\":\"lebron james\",\"pageSize\":10,\"offset\":0}'"
+          }
+        ]
       }
     },
     "/players/lastname": {
@@ -1019,13 +1896,26 @@
           "Player Discovery"
         ],
         "summary": "POST /players/lastname",
-        "description": "List player metadata records matching a last name prefix with pagination support.",
+        "description": "List player metadata records matching a last name prefix with pagination support.\n\nUsage: prefix is a case-insensitive last-name prefix.",
         "operationId": "listPlayersByLastName",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ListPlayersByLastNameRequestDto"
+              },
+              "examples": {
+                "lastNamePrefix": {
+                  "summary": "Search by last name prefix",
+                  "value": {
+                    "prefix": "James",
+                    "pageSize": 25
+                  }
+                }
+              },
+              "example": {
+                "prefix": "James",
+                "pageSize": 25
               }
             }
           },
@@ -1048,11 +1938,70 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ListPlayersByLastNameResponseDto"
+                },
+                "example": {
+                  "body": [
+                    {
+                      "accolades": [],
+                      "birthPlace": "Akron, Ohio",
+                      "dateBorn": "December 30, 1984",
+                      "draftInfo": "2003: Rd 1, Pk 1 (CLE)",
+                      "firstName": "LeBron",
+                      "headshotUrl": "https://www.basketball-reference.com/req/202106291/images/headshots/jamesle01.jpg",
+                      "height": "6-9",
+                      "hofInductionInfo": null,
+                      "lastName": "James",
+                      "nbaDebut": "October 29, 2003",
+                      "playerId": "jamesle01",
+                      "positions": "Small Forward, Power Forward, Point Guard",
+                      "teams": [],
+                      "weight": "250lb"
+                    }
+                  ],
+                  "lastEvaluatedKey": null,
+                  "pageSize": 25,
+                  "responseCode": 200,
+                  "totalItems": 1
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Successful response",
+                    "value": {
+                      "body": [
+                        {
+                          "accolades": [],
+                          "birthPlace": "Akron, Ohio",
+                          "dateBorn": "December 30, 1984",
+                          "draftInfo": "2003: Rd 1, Pk 1 (CLE)",
+                          "firstName": "LeBron",
+                          "headshotUrl": "https://www.basketball-reference.com/req/202106291/images/headshots/jamesle01.jpg",
+                          "height": "6-9",
+                          "hofInductionInfo": null,
+                          "lastName": "James",
+                          "nbaDebut": "October 29, 2003",
+                          "playerId": "jamesle01",
+                          "positions": "Small Forward, Power Forward, Point Guard",
+                          "teams": [],
+                          "weight": "250lb"
+                        }
+                      ],
+                      "lastEvaluatedKey": null,
+                      "pageSize": 25,
+                      "responseCode": 200,
+                      "totalItems": 1
+                    }
+                  }
                 }
               }
             }
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl --request POST 'https://basketball-head.p.rapidapi.com/players/lastname' \\\n  --header 'Content-Type: application/json' \\\n  --header 'x-rapidapi-host: basketball-head.p.rapidapi.com' \\\n  --header 'x-rapidapi-key: YOUR_RAPIDAPI_KEY' \\\n  --data '{\"prefix\":\"James\",\"pageSize\":25}'"
+          }
+        ]
       }
     }
   },
@@ -1520,6 +2469,7 @@
             "maximum": 100.0,
             "minimum": 1.0,
             "title": "Pagesize",
+            "description": "Number of records to return. Must be between 1 and 100.",
             "default": 50
           },
           "lastEvaluatedKey": {
@@ -1532,14 +2482,14 @@
                 "type": "null"
               }
             ],
-            "title": "Lastevaluatedkey"
+            "title": "Lastevaluatedkey",
+            "description": "Omit on the first request. For the next page, pass the exact lastEvaluatedKey object returned by the previous response."
           }
         },
         "type": "object",
         "title": "ListPlayerGamesBySeasonRequestDto",
         "examples": [
           {
-            "lastEvaluatedKey": null,
             "pageSize": 25
           }
         ]
@@ -1614,6 +2564,7 @@
             "maximum": 100.0,
             "minimum": 1.0,
             "title": "Pagesize",
+            "description": "Number of records to return. Must be between 1 and 100.",
             "default": 50
           },
           "lastEvaluatedKey": {
@@ -1626,14 +2577,14 @@
                 "type": "null"
               }
             ],
-            "title": "Lastevaluatedkey"
+            "title": "Lastevaluatedkey",
+            "description": "Omit on the first request. For the next page, pass the exact lastEvaluatedKey object returned by the previous response."
           }
         },
         "type": "object",
         "title": "ListPlayerGamesRequestDto",
         "examples": [
           {
-            "lastEvaluatedKey": null,
             "pageSize": 25
           }
         ]
@@ -1706,11 +2657,13 @@
           "firstname": {
             "type": "string",
             "minLength": 1,
-            "title": "Firstname"
+            "title": "Firstname",
+            "description": "First name prefix to search. Values are case-insensitive."
           },
           "lastname": {
             "type": "string",
             "title": "Lastname",
+            "description": "Optional last name prefix filter. Use an empty string or omit it to search by first name only.",
             "default": ""
           },
           "pageSize": {
@@ -1718,6 +2671,7 @@
             "maximum": 100.0,
             "minimum": 1.0,
             "title": "Pagesize",
+            "description": "Number of records to return. Must be between 1 and 100.",
             "default": 50
           },
           "lastEvaluatedKey": {
@@ -1730,7 +2684,8 @@
                 "type": "null"
               }
             ],
-            "title": "Lastevaluatedkey"
+            "title": "Lastevaluatedkey",
+            "description": "Omit on the first request. For the next page, pass the exact lastEvaluatedKey object returned by the previous response."
           }
         },
         "type": "object",
@@ -1741,7 +2696,6 @@
         "examples": [
           {
             "firstname": "LeBron",
-            "lastEvaluatedKey": null,
             "lastname": "James",
             "pageSize": 25
           }
@@ -1821,13 +2775,15 @@
           "prefix": {
             "type": "string",
             "minLength": 1,
-            "title": "Prefix"
+            "title": "Prefix",
+            "description": "Last name prefix to search. Values are case-insensitive."
           },
           "pageSize": {
             "type": "integer",
             "maximum": 100.0,
             "minimum": 1.0,
             "title": "Pagesize",
+            "description": "Number of records to return. Must be between 1 and 100.",
             "default": 50
           },
           "lastEvaluatedKey": {
@@ -1840,7 +2796,8 @@
                 "type": "null"
               }
             ],
-            "title": "Lastevaluatedkey"
+            "title": "Lastevaluatedkey",
+            "description": "Omit on the first request. For the next page, pass the exact lastEvaluatedKey object returned by the previous response."
           }
         },
         "type": "object",
@@ -1850,7 +2807,6 @@
         "title": "ListPlayersByLastNameRequestDto",
         "examples": [
           {
-            "lastEvaluatedKey": null,
             "pageSize": 25,
             "prefix": "James"
           }
@@ -1932,6 +2888,7 @@
             "maximum": 100.0,
             "minimum": 1.0,
             "title": "Pagesize",
+            "description": "Number of records to return. Must be between 1 and 100.",
             "default": 50
           },
           "lastEvaluatedKey": {
@@ -1944,14 +2901,14 @@
                 "type": "null"
               }
             ],
-            "title": "Lastevaluatedkey"
+            "title": "Lastevaluatedkey",
+            "description": "Omit on the first request. For the next page, pass the exact lastEvaluatedKey object returned by the previous response."
           }
         },
         "type": "object",
         "title": "ListPlayersRequestDto",
         "examples": [
           {
-            "lastEvaluatedKey": null,
             "pageSize": 25
           }
         ]
@@ -4251,19 +5208,22 @@
           "query": {
             "type": "string",
             "minLength": 1,
-            "title": "Query"
+            "title": "Query",
+            "description": "Full-text player name search query."
           },
           "pageSize": {
             "type": "integer",
             "maximum": 100.0,
             "minimum": 1.0,
             "title": "Pagesize",
+            "description": "Number of search hits to return. Must be between 1 and 100.",
             "default": 10
           },
           "offset": {
             "type": "integer",
             "minimum": 0.0,
             "title": "Offset",
+            "description": "Zero-based search offset for pagination.",
             "default": 0
           }
         },
