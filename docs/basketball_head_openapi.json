@@ -1521,6 +1521,176 @@
         ]
       }
     },
+    "/games/{game_id}": {
+      "get": {
+        "tags": [
+          "Game Context"
+        ],
+        "summary": "GET /games/{game_id}",
+        "description": "Get comprehensive game context by Basketball Reference game ID, including line score, four factors, box scores, player splits, play-by-play, and shot chart data.\n\nUsage: game_id is a Basketball Reference game ID such as 202401010UTA.",
+        "operationId": "getGameContext",
+        "parameters": [
+          {
+            "description": "Basketball Reference game ID, for example 202401010UTA.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{9}[A-Z]{3}$",
+              "title": "Game Id",
+              "description": "Basketball Reference game ID, for example 202401010UTA.",
+              "examples": [
+                "202401010UTA"
+              ]
+            },
+            "name": "game_id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetGameContextResponseDto"
+                },
+                "example": {
+                  "body": {
+                    "LineScore": {
+                      "lineScore": [
+                        {
+                          "1": "26",
+                          "2": "29",
+                          "3": "24",
+                          "4": "11",
+                          "T": "90",
+                          "team": "DAL"
+                        },
+                        {
+                          "1": "37",
+                          "2": "25",
+                          "3": "31",
+                          "4": "34",
+                          "T": "127",
+                          "team": "UTA"
+                        }
+                      ]
+                    },
+                    "ShotChart": {
+                      "shotChart": {
+                        "shots": [
+                          {
+                            "playerId": "irvinky01",
+                            "playerName": "Kyrie Irving",
+                            "quarter": "Q1",
+                            "result": "MAKE",
+                            "team": "DAL",
+                            "timeRemaining": "11:38.0"
+                          }
+                        ]
+                      }
+                    },
+                    "Summary": {
+                      "gameId": "202401010UTA",
+                      "metadata": {
+                        "teams": [
+                          {
+                            "team": "DAL",
+                            "total": "90"
+                          },
+                          {
+                            "team": "UTA",
+                            "total": "127"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "responseCode": 200,
+                  "totalItems": 9
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Successful response",
+                    "value": {
+                      "body": {
+                        "LineScore": {
+                          "lineScore": [
+                            {
+                              "1": "26",
+                              "2": "29",
+                              "3": "24",
+                              "4": "11",
+                              "T": "90",
+                              "team": "DAL"
+                            },
+                            {
+                              "1": "37",
+                              "2": "25",
+                              "3": "31",
+                              "4": "34",
+                              "T": "127",
+                              "team": "UTA"
+                            }
+                          ]
+                        },
+                        "ShotChart": {
+                          "shotChart": {
+                            "shots": [
+                              {
+                                "playerId": "irvinky01",
+                                "playerName": "Kyrie Irving",
+                                "quarter": "Q1",
+                                "result": "MAKE",
+                                "team": "DAL",
+                                "timeRemaining": "11:38.0"
+                              }
+                            ]
+                          }
+                        },
+                        "Summary": {
+                          "gameId": "202401010UTA",
+                          "metadata": {
+                            "teams": [
+                              {
+                                "team": "DAL",
+                                "total": "90"
+                              },
+                              {
+                                "team": "UTA",
+                                "total": "127"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      "responseCode": 200,
+                      "totalItems": 9
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl --request GET 'https://basketball-head.p.rapidapi.com/games/202401010UTA' \\\n  --header 'Content-Type: application/json' \\\n  --header 'x-rapidapi-host: basketball-head.p.rapidapi.com' \\\n  --header 'x-rapidapi-key: YOUR_RAPIDAPI_KEY'"
+          }
+        ]
+      }
+    },
     "/players": {
       "post": {
         "tags": [
@@ -2007,6 +2177,87 @@
   },
   "components": {
     "schemas": {
+      "GetGameContextResponseDto": {
+        "properties": {
+          "body": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Body"
+          },
+          "totalItems": {
+            "type": "integer",
+            "title": "Totalitems"
+          },
+          "responseCode": {
+            "type": "integer",
+            "title": "Responsecode",
+            "default": 200
+          }
+        },
+        "type": "object",
+        "required": [
+          "body",
+          "totalItems"
+        ],
+        "title": "GetGameContextResponseDto",
+        "examples": [
+          {
+            "body": {
+              "LineScore": {
+                "lineScore": [
+                  {
+                    "1": "26",
+                    "2": "29",
+                    "3": "24",
+                    "4": "11",
+                    "T": "90",
+                    "team": "DAL"
+                  },
+                  {
+                    "1": "37",
+                    "2": "25",
+                    "3": "31",
+                    "4": "34",
+                    "T": "127",
+                    "team": "UTA"
+                  }
+                ]
+              },
+              "ShotChart": {
+                "shotChart": {
+                  "shots": [
+                    {
+                      "playerId": "irvinky01",
+                      "playerName": "Kyrie Irving",
+                      "quarter": "Q1",
+                      "result": "MAKE",
+                      "team": "DAL",
+                      "timeRemaining": "11:38.0"
+                    }
+                  ]
+                }
+              },
+              "Summary": {
+                "gameId": "202401010UTA",
+                "metadata": {
+                  "teams": [
+                    {
+                      "team": "DAL",
+                      "total": "90"
+                    },
+                    {
+                      "team": "UTA",
+                      "total": "127"
+                    }
+                  ]
+                }
+              }
+            },
+            "responseCode": 200,
+            "totalItems": 9
+          }
+        ]
+      },
       "GetPlayerAdvancedStatsResponseDto": {
         "properties": {
           "body": {
@@ -5511,6 +5762,9 @@
     },
     {
       "name": "Player Game Stats"
+    },
+    {
+      "name": "Game Context"
     }
   ]
 }
